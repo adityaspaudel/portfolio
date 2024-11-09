@@ -39,7 +39,7 @@ const WelcomeHome = () => {
 			</div>
 			<div className="flex flex-col gap-4 justify-center items-center">
 				<div className=" text-6xl font-bold uppercase">
-					👋 Hello there, I'm Aaditya Paudel
+					👋 Hi there, I'm Aaditya Paudel
 				</div>
 				<div className="flex flex-col gap-4 w-[400px] m-auto">
 					<li>
@@ -54,9 +54,9 @@ const WelcomeHome = () => {
 				</div>
 				{/* About me----------------------------------------------- */}
 				<div className="flex flex-col justify-center items-center">
-					<h1>More about me</h1>
+					<h1 className="uppercase font-bold text-3xl">About me</h1>
 					<div className="flex justify-between gap-[100px]">
-						<div className="w-[400px]">
+						<div className="w-[400px] list-none">
 							<li>
 								🔭 I’m currently focussed on my team project augMern, and other
 								two personal projects miniProjects, socialmedia
@@ -68,17 +68,27 @@ const WelcomeHome = () => {
 								online practicing platforms.
 							</li>
 						</div>
-						<div className="w-[400px]">
-							<h1>My skills</h1>
-							<div>
-								<li>html</li>
-								<li>css</li>
-								<li>tailwindcss</li>
-								<li>javascript</li>
-								<li>reactjs</li>
-								<li>nextjs</li>
-								<li>restapi</li>
-								<li>vscode</li>
+						{/* skills addition---------------------------------- */}
+						<div className="w-[400px] bg-blue-100 p-2 rounded-md">
+							<h1 className="uppercase font-bold text-2xl">My skills</h1>
+							<div className=" flex gap-2 list-none uppercase  text-sm">
+								<div className="flex flex-col gap-2">
+									<h2>My tech stack</h2>
+									<li className="bg-blue-200 p-2 rounded-md">nextjs</li>
+									<li className="bg-blue-200 p-2 rounded-md">reactjs</li>
+									<li className="bg-blue-200 p-2 rounded-md">
+										modern javascript
+									</li>
+									<li className="bg-blue-200 p-2 rounded-md">css</li>
+									<li className="bg-blue-200 p-2 rounded-md">tailwind css</li>
+									<li className="bg-blue-200 p-2 rounded-md">html</li>
+								</div>
+
+								<div className="flex flex-col gap-2">
+									<h1>other tools and librabries</h1>
+									<li className="bg-blue-200 p-2 rounded-md">vscode</li>
+									<li className="bg-blue-200 p-2 rounded-md">restapi</li>
+								</div>
 							</div>
 						</div>
 					</div>
