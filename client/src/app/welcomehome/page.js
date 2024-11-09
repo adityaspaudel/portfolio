@@ -51,16 +51,37 @@ const WelcomeHome = () => {
 						with Reactjs, Nextjs and Nodejs with Expressjs and Responsive Web
 						Design.
 					</li>
-					<li>
-						🔭 I’m currently focussed on my team project augMern, and other two
-						personal projects miniProjects, socialmedia
-					</li>
-					<li>
-						🌱 I’m actively learning MERN stack at BroadwayInfosis and self
-						teaching myself with online documentation with w3Schools, MDN web
-						docs, freeCodeCamp etc like popular web documentation & online
-						practicing platforms.
-					</li>
+				</div>
+				{/* About me----------------------------------------------- */}
+				<div className="flex flex-col justify-center items-center">
+					<h1>More about me</h1>
+					<div className="flex justify-between gap-[100px]">
+						<div className="w-[400px]">
+							<li>
+								🔭 I’m currently focussed on my team project augMern, and other
+								two personal projects miniProjects, socialmedia
+							</li>
+							<li>
+								🌱 I’m actively learning MERN stack at BroadwayInfosis and self
+								teaching myself with online documentation with w3Schools, MDN
+								web docs, freeCodeCamp etc like popular web documentation &
+								online practicing platforms.
+							</li>
+						</div>
+						<div className="w-[400px]">
+							<h1>My skills</h1>
+							<div>
+								<li>html</li>
+								<li>css</li>
+								<li>tailwindcss</li>
+								<li>javascript</li>
+								<li>reactjs</li>
+								<li>nextjs</li>
+								<li>restapi</li>
+								<li>vscode</li>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>{" "}
 		</div>
