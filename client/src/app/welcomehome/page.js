@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 const WelcomeHome = () => {
 	const [formData, setFormData] = useState({
 		fullName: "",
@@ -44,10 +45,35 @@ const WelcomeHome = () => {
 			<div
 				className="flex flex-col bg-blue-100 text-5xl hover:bg-blue-50 fixed top-1/2 transform -translate-y-1/2
         rounded-tr-xl rounded-br-xl gap-4">
-				<FaInstagram className="text-red-600 p-2 hover:bg-green-200 hover:rounded-tr-xl" />
-				<FaLinkedin className="text-blue-600 p-2 hover:bg-green-200" />
-				<FaTwitter className="text-blue-600 p-2 hover:bg-green-200" />
-				<FaGithub className="text-black p-2 hover:bg-green-200 hover:rounded-br-xl" />
+				<a
+					href="https://github.com/adityaspaudel"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-black p-2 hover:bg-green-200 hover:rounded-br-xl">
+					<FaGithub />
+				</a>
+				<a
+					href="https://www.linkedin.com/in/adityaspaudel/"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-blue-600 p-2 hover:bg-green-200">
+					<FaLinkedin />
+				</a>
+				<a
+					href="https://x.com/Adityaspaudel"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-blue-600 p-2 hover:bg-green-200">
+					<FaTwitter />
+				</a>
+
+				<a
+					href="https://www.instagram.com/adityas.paudel/"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-red-600 p-2 hover:bg-green-200 hover:rounded-tr-xl">
+					<FaInstagram />
+				</a>
 			</div>
 
 			{/* Avatar and Menubar */}
@@ -179,9 +205,14 @@ const WelcomeHome = () => {
 								onChange={handleChange}
 							/>
 						</div>
-						<div className="flex">
+						<div className="flex justify-center items-center">
 							<button
-								className="border-2 p-1 bg-red-400 hover:bg-green-400 rounded-sm text-white"
+								className={cn(
+									"px-4 py-2 rounded-md border border-transparent",
+									"bg-red-500 text-white font-semibold shadow-md",
+									"hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400",
+									"active:bg-green-600 transition-colors duration-300"
+								)}
 								type="submit">
 								Submit
 							</button>
