@@ -43,13 +43,13 @@ const WelcomeHome = () => {
 		<div>
 			{/* Social Media Sidebar */}
 			<div
-				className="flex flex-col bg-blue-100 text-5xl hover:bg-blue-50 fixed top-1/2 transform -translate-y-1/2
+				className="flex flex-col bg-blue-100 text-5xl hover:bg-blue-50 border-2 hover:border-black fixed top-1/2 transform -translate-y-1/2
         rounded-tr-xl rounded-br-xl gap-4">
 				<a
 					href="https://github.com/adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-black p-2 hover:bg-green-200 hover:rounded-br-xl">
+					className="text-black p-2 hover:bg-green-200 hover:rounded-tr-xl">
 					<FaGithub />
 				</a>
 				<a
@@ -71,7 +71,7 @@ const WelcomeHome = () => {
 					href="https://www.instagram.com/adityas.paudel/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-red-600 p-2 hover:bg-green-200 hover:rounded-tr-xl">
+					className="text-red-600 p-2 hover:bg-green-200 hover:rounded-br-xl">
 					<FaInstagram />
 				</a>
 			</div>
@@ -101,7 +101,7 @@ const WelcomeHome = () => {
 				<div className="text-6xl font-bold uppercase">
 					👋 Hi there, I'm Aaditya Paudel
 				</div>
-				<div className="flex flex-col gap-4 w-[400px] m-auto">
+				<div className="flex flex-col gap-4 w-[400px] list-none  m-auto">
 					<li>
 						🎓 I'm a bachelor degree graduate in Bachelor of Computer
 						Application (BCA).
@@ -135,31 +135,31 @@ const WelcomeHome = () => {
 							<div className="flex gap-2 list-none uppercase text-sm">
 								<div className="flex flex-col gap-2">
 									<h2>My tech stack</h2>
-									<li className="bg-blue-200 border-2 hover:border-blue-400 p-2 rounded-md">
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										nextjs
 									</li>
-									<li className="bg-blue-200 border-2 hover:border-blue-400 p-2 rounded-md">
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										reactjs
 									</li>
-									<li className="bg-blue-200 border-2 hover:border-blue-400 p-2 rounded-md">
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										modern javascript
 									</li>
-									<li className="bg-blue-200 border-2 hover:border-blue-400 p-2 rounded-md">
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										css
 									</li>
-									<li className="bg-blue-200 border-2 hover:border-blue-400 p-2 rounded-md">
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										tailwind css
 									</li>
-									<li className="bg-blue-200 border-2 hover:border-blue-400 p-2 rounded-md">
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										html
 									</li>
 								</div>
 								<div className="flex flex-col gap-2">
 									<h1>Other tools and libraries</h1>
-									<li className="bg-blue-200 border-2 hover:border-blue-400 p-2 rounded-md">
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										vscode
 									</li>
-									<li className="bg-blue-200 border-2 hover:border-blue-400 p-2 rounded-md">
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										restapi
 									</li>
 								</div>
@@ -169,12 +169,17 @@ const WelcomeHome = () => {
 				</div>
 
 				{/* Contact Form */}
-				<div>
+				<div className="border-2 hover:border-black p-4 rounded-xl">
+					<h2 className="bg-blue-200 p-2">Message me</h2>
 					<form
 						onSubmit={handleSubmit}
 						className="flex flex-col gap-2 w-[400px]">
 						<div className="flex flex-col">
-							<label htmlFor="fullName">Full Name</label>
+							<label
+								className="p-2"
+								htmlFor="fullName">
+								Full Name
+							</label>
 							<input
 								className="border-2 p-2"
 								name="fullName"
@@ -185,7 +190,11 @@ const WelcomeHome = () => {
 							/>
 						</div>
 						<div className="flex flex-col">
-							<label htmlFor="email">Email</label>
+							<label
+								className="p-2"
+								htmlFor="email">
+								Email
+							</label>
 							<input
 								className="border-2 p-2"
 								name="email"
@@ -196,7 +205,11 @@ const WelcomeHome = () => {
 							/>
 						</div>
 						<div className="flex flex-col">
-							<label htmlFor="textMessage">Message</label>
+							<label
+								className="p-2"
+								htmlFor="textMessage">
+								Message
+							</label>
 							<textarea
 								className="border-2 p-2"
 								name="textMessage"
@@ -211,7 +224,8 @@ const WelcomeHome = () => {
 									"px-4 py-2 rounded-md border border-transparent",
 									"bg-red-500 text-white font-semibold shadow-md",
 									"hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400",
-									"active:bg-green-600 transition-colors duration-300"
+									"active:bg-green-600 transition-colors duration-300",
+									"w-[100%]"
 								)}
 								type="submit">
 								Submit
