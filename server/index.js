@@ -3,16 +3,16 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
-const port = 9000; // Updated port to match your example
+
+require("dotenv").config();
+
+const port = process.env.PORT; // Updated port to match your example
 
 // MongoDB Connection
 const dbConnect = async () => {
 	try {
-		await mongoose.connect("mongodb://127.0.0.1:27017/portfolio", {
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-		});
-		console.log("Connected to MongoDB");
+		await mongoose.connect("mongodb://127.0.0.1:27017/portfolio");
+		console.log("Successfully connected to MongoDB");
 	} catch (err) {
 		console.error("Error occurred:", err);
 	}
