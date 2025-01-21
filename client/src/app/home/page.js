@@ -4,7 +4,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
+
+import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import { cn } from "@/lib/utils";
 const WelcomeHome = () => {
 	const [formData, setFormData] = useState({
@@ -28,7 +30,17 @@ const WelcomeHome = () => {
 			);
 
 			// success message----------------------------
-			alert("Message sent successfully!");
+			// alert("Message sent successfully!");
+			toast.success("Form submitted successfully!", {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "colored",
+			});
 			console.log("Response:", response.data);
 			// Reset the form------------------------
 			setFormData({
@@ -39,7 +51,16 @@ const WelcomeHome = () => {
 			});
 		} catch (error) {
 			console.error("Error sending message:", error);
-			alert("Failed to send message. Please try again.");
+			toast.error(`Error submitting form: ${error.message}`, {
+				position: "top-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "colored",
+			});
 		}
 	};
 
