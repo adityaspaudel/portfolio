@@ -25,6 +25,8 @@ const WelcomeHome = () => {
 				"http://localhost:9000/sendMessage",
 				formData
 			);
+
+			// success message
 			alert("Message sent successfully!");
 			console.log("Response:", response.data);
 			// Reset the form
@@ -40,30 +42,30 @@ const WelcomeHome = () => {
 	};
 
 	return (
-		<div>
+		<div className="font-mono">
 			{/* Social Media Sidebar */}
 			<div
-				className="flex flex-col bg-blue-100 text-5xl hover:bg-blue-50 border-2 hover:border-black fixed top-1/2 transform -translate-y-1/2
+				className="flex flex-col font-mono  bg-blue-100 text-5xl hover:bg-blue-50 border-2 hover:border-black fixed top-1/2 transform -translate-y-1/2
         rounded-tr-xl rounded-br-xl gap-4">
 				<a
 					href="https://github.com/adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-black p-2 hover:bg-green-200 hover:rounded-tr-xl">
+					className="text-black p-2 hover:bg-green-200 hover:rounded-tr-xl cursor-pointer">
 					<FaGithub />
 				</a>
 				<a
 					href="https://www.linkedin.com/in/adityaspaudel/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-600 p-2 hover:bg-green-200">
+					className="text-blue-600 p-2 hover:bg-green-200 cursor-pointer">
 					<FaLinkedin />
 				</a>
 				<a
 					href="https://x.com/Adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-600 p-2 hover:bg-green-200">
+					className="text-blue-600 p-2 hover:bg-green-200 cursor-pointer">
 					<FaTwitter />
 				</a>
 
@@ -71,14 +73,14 @@ const WelcomeHome = () => {
 					href="https://www.instagram.com/adityas.paudel/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-red-600 p-2 hover:bg-green-200 hover:rounded-br-xl">
+					className="text-red-600 p-2 hover:bg-green-200 hover:rounded-br-xl cursor-pointer">
 					<FaInstagram />
 				</a>
 			</div>
 
 			{/* Avatar and Menubar */}
 			<div className="flex justify-between bg-blue-50 p-2 uppercase text-black">
-				<div className="flex gap-4 font-bold justify-center items-center">
+				<div className="flex gap-4 font-bold justify-center items-center cursor-pointer">
 					<Image
 						className="h-[50px] w-[50px] rounded-3xl"
 						src="/avatar-aaditya.jpg"
@@ -89,10 +91,10 @@ const WelcomeHome = () => {
 					<div>Aaditya Paudel</div>
 				</div>
 				<div className="flex gap-20 bg-blue-50 mt-0 justify-center items-center fixed top-0 right-0">
-					<div className="p-5 hover:bg-blue-200">Home</div>
-					<div className="p-5 hover:bg-blue-200">About</div>
-					<div className="p-5 hover:bg-blue-200">Projects</div>
-					<div className="p-5 hover:bg-blue-200">Contact</div>
+					<div className="p-5 hover:bg-blue-200 cursor-pointer">Home</div>
+					<div className="p-5 hover:bg-blue-200 cursor-pointer">About</div>
+					<div className="p-5 hover:bg-blue-200 cursor-pointer">Projects</div>
+					<div className="p-5 hover:bg-blue-200 cursor-pointer">Contact</div>
 				</div>
 			</div>
 
@@ -101,32 +103,34 @@ const WelcomeHome = () => {
 				<div className="text-6xl font-bold uppercase">
 					👋 Hi there, I'm Aaditya Paudel
 				</div>
-				<div className="flex flex-col gap-4 w-[400px] list-none  m-auto">
-					<li>
-						🎓 I'm a bachelor degree graduate in Bachelor of Computer
-						Application (BCA).
-					</li>
-					<li>
-						🥰 I'm a passionate web developer specializing in modern JavaScript
-						with Reactjs, Nextjs, and Nodejs with Expressjs and Responsive Web
-						Design.
-					</li>
-				</div>
 
 				{/* About Me */}
 				<div className="flex flex-col justify-center items-center">
 					<h1 className="uppercase font-bold text-3xl">About me</h1>
 					<div className="flex justify-between gap-[100px]">
-						<div className="w-[400px] list-none">
-							<li>
-								🔭 I’m currently focused on my team project augMern, and other
-								two personal projects miniProjects, socialmedia
-							</li>
-							<li>
-								🌱 I’m actively learning MERN stack at BroadwayInfosis and
-								self-teaching myself with online documentation like w3Schools,
-								MDN web docs, and freeCodeCamp.
-							</li>
+						<div>
+							<div className="uppercase font-bold text-2xl ">Education</div>
+							<div className="w-[400px] list-none">
+								<div className="flex flex-col gap-4 w-[400px] list-none  m-auto">
+									<li>
+										🎓 Hi Im Bachelor degree graduate in BCA (Bachelor in
+										Computer Application), from Oxford College of Engineering
+										and Management, Gaindakot-2 Nawalparasi
+									</li>
+									<li>
+										🥰 I'm a passionate web developer specializing in modern
+										JavaScript with Reactjs, Nextjs, and Nodejs with Expressjs
+										and Responsive Web Design.
+									</li>
+									<li>
+										🌱 I’m actively learning MERN Stack at BroadwayInfosys and
+										self-teaching myself with online documentation like
+										w3Schools, MDN web docs, and freeCodeCamp,GeekForGeeks, and
+										Youtube Playlists of YahooBaba (HTML+CSS+JavaScript), Thapa
+										Technical (React+ Mongoose+ mongodb) .
+									</li>
+								</div>
+							</div>
 						</div>
 
 						{/* Skills */}
