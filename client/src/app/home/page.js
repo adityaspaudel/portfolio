@@ -109,22 +109,23 @@ const WelcomeHome = () => {
 				{/* About Me ---------------------------------------------------*/}
 				<div className="flex flex-col justify-center items-center">
 					<h1 className="uppercase font-bold text-3xl">About me</h1>
+					<hr className="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
 					<div className="flex justify-between gap-[100px]">
 						<div>
 							<div className="uppercase font-bold text-2xl ">Education</div>
 							<div className="w-[400px] list-none">
 								<div className="flex flex-col gap-4 w-[400px] list-none  m-auto">
-									<li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										🎓 Hi Im Bachelor degree graduate in BCA (Bachelor in
 										Computer Application), from Oxford College of Engineering
 										and Management, Gaindakot-2 Nawalparasi
 									</li>
-									<li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										🥰 I'm a passionate web developer specializing in modern
 										JavaScript with Reactjs, Nextjs, and Nodejs with Expressjs
 										and Responsive Web Design.
 									</li>
-									<li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										🌱 I’m actively learning MERN Stack at BroadwayInfosys and
 										self-teaching myself with online documentation like
 										w3Schools, MDN web docs, and freeCodeCamp,GeekForGeeks, and
@@ -140,33 +141,100 @@ const WelcomeHome = () => {
 							<h1 className="uppercase font-bold text-2xl">My skills</h1>
 							<div className="flex gap-2 list-none uppercase text-sm">
 								<div className="flex flex-col gap-2">
-									<h2>My tech stack</h2>
+									<h2 className="font-bold text-lg">My tech stack</h2>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										nextjs
+										reactjs, nextjs
 									</li>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										reactjs
+										javascript and modern javascript
 									</li>
+
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										modern javascript
+										redux, redux toolkit, react-redux, redux-persist,
+										redux-logger
 									</li>
+
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										css
 									</li>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										tailwind css
+										tailwind css, tailwind-merge
 									</li>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										html
+										html and html5
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										formik and yup
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										shadcn, lucide-react, chartjs, nextui, radixui
 									</li>
 								</div>
 								<div className="flex flex-col gap-2">
-									<h1>Other tools and libraries</h1>
+									<h1 className="font-bold text-lg">Backend</h1>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										Nodejs
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										Expressjs
+									</li>
+
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										Mongodb
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										mongoose
+									</li>
+
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										restful api
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										axios
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										GraphQL
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										websocket
+									</li>
+								</div>
+								<div className="flex flex-col gap-2">
+									<h1 className="font-bold text-lg">
+										Other tools and libraries
+									</h1>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										vscode
 									</li>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										restapi
+										npm
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										git and github
+									</li>
+
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										postman
+									</li>
+
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										react-toastify, moment, framer-motion, react-pdf/renderer,
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										cmdk, clsx, tiptap-react
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										bcypt and jwt
+									</li>
+
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										nodemon
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										cors
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										nodemailer
 									</li>
 								</div>
 							</div>

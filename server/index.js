@@ -23,7 +23,7 @@ dbConnect();
 app.use(express.json()); // Corrected `app.use(json.express)` to `express.json()`
 app.use(cors());
 
-// Mongoose Schema and Model
+// Mongoose Schema and Model------------------------------
 const MessageSchema = new mongoose.Schema(
 	{
 		fullName: {
@@ -66,7 +66,7 @@ const MessageSchema = new mongoose.Schema(
 );
 const Message = mongoose.model("Message", MessageSchema); // Create the Message model
 
-// Controller
+// Controller---------------------------
 const sendMessage = async (req, res) => {
 	try {
 		const { fullName, email, age, textMessage } = req.body;
@@ -87,10 +87,10 @@ const sendMessage = async (req, res) => {
 	}
 };
 
-// Routes
+// Routes----------------------------------------
 app.post("/sendMessage", sendMessage); // Corrected route setup
 app.get("/", (req, res) => {
-	res.send("Hello Guys!! " + res);
+	res.send("successful communication");
 });
 
 // Start the Server
