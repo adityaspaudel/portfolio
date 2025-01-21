@@ -10,6 +10,7 @@ const WelcomeHome = () => {
 	const [formData, setFormData] = useState({
 		fullName: "",
 		email: "",
+		age: "",
 		textMessage: "",
 	});
 
@@ -26,13 +27,14 @@ const WelcomeHome = () => {
 				formData
 			);
 
-			// success message
+			// success message----------------------------
 			alert("Message sent successfully!");
 			console.log("Response:", response.data);
-			// Reset the form
+			// Reset the form------------------------
 			setFormData({
 				fullName: "",
 				email: "",
+				age: "",
 				textMessage: "",
 			});
 		} catch (error) {
@@ -43,7 +45,7 @@ const WelcomeHome = () => {
 
 	return (
 		<div className="font-mono">
-			{/* Social Media Sidebar */}
+			{/* Social Media Sidebar------------------------------------------------ */}
 			<div
 				className="flex flex-col font-mono  bg-blue-100 text-5xl hover:bg-blue-50 border-2 hover:border-black fixed top-1/2 transform -translate-y-1/2
         rounded-tr-xl rounded-br-xl gap-4">
@@ -62,7 +64,7 @@ const WelcomeHome = () => {
 					<FaLinkedin />
 				</a>
 				<a
-					href="https://x.com/Adityaspaudel"
+					href="https://x.com/adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="text-blue-600 p-2 hover:bg-green-200 cursor-pointer">
@@ -78,7 +80,7 @@ const WelcomeHome = () => {
 				</a>
 			</div>
 
-			{/* Avatar and Menubar */}
+			{/* Avatar and Menubar ------------------------------------------------*/}
 			<div className="flex justify-between bg-blue-50 p-2 uppercase text-black">
 				<div className="flex gap-4 font-bold justify-center items-center cursor-pointer">
 					<Image
@@ -104,7 +106,7 @@ const WelcomeHome = () => {
 					👋 Hi there, I'm Aaditya Paudel
 				</div>
 
-				{/* About Me */}
+				{/* About Me ---------------------------------------------------*/}
 				<div className="flex flex-col justify-center items-center">
 					<h1 className="uppercase font-bold text-3xl">About me</h1>
 					<div className="flex justify-between gap-[100px]">
@@ -133,7 +135,7 @@ const WelcomeHome = () => {
 							</div>
 						</div>
 
-						{/* Skills */}
+						{/* Skills--------------------------------------------------------- */}
 						<div className="w-[400px] bg-blue-100 p-2 rounded-md">
 							<h1 className="uppercase font-bold text-2xl">My skills</h1>
 							<div className="flex gap-2 list-none uppercase text-sm">
@@ -172,7 +174,7 @@ const WelcomeHome = () => {
 					</div>
 				</div>
 
-				{/* Contact Form */}
+				{/* Contact Form ------------------------------------------------------ */}
 				<div className="border-2 hover:border-black p-4 rounded-xl">
 					<h2 className="bg-blue-200 p-2">Message me</h2>
 					<form
@@ -191,6 +193,8 @@ const WelcomeHome = () => {
 								type="text"
 								value={formData.fullName}
 								onChange={handleChange}
+								onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
+								onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
 							/>
 						</div>
 						<div className="flex flex-col">
@@ -206,6 +210,25 @@ const WelcomeHome = () => {
 								placeholder="Enter your email"
 								value={formData.email}
 								onChange={handleChange}
+								onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
+								onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
+							/>
+						</div>
+						<div className="flex flex-col">
+							<label
+								className="p-2"
+								htmlFor="age">
+								Age
+							</label>
+							<input
+								className="border-2 p-2"
+								name="age"
+								type="age"
+								placeholder="Enter your age"
+								value={formData.age}
+								onChange={handleChange}
+								onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
+								onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
 							/>
 						</div>
 						<div className="flex flex-col">
@@ -220,6 +243,8 @@ const WelcomeHome = () => {
 								placeholder="Enter Message"
 								value={formData.textMessage}
 								onChange={handleChange}
+								onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
+								onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
 							/>
 						</div>
 						<div className="flex justify-center items-center">

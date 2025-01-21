@@ -45,12 +45,19 @@ const MessageSchema = new mongoose.Schema(
 				message: (props) => `${props.value} is not a valid email!`,
 			},
 		},
+		age: {
+			type: Number,
+			required: [true, "age is required"],
+			trim: true,
+			min: [1, "too young, age should at least 10"],
+			max: [70, "too old, age must be below 70"],
+		},
 		textMessage: {
 			type: String,
 			required: [true, "Message is required"],
 			trim: true,
-			minlength: [10, "Message must be at least 10 characters long"],
-			maxlength: [500, "Message must not exceed 500 characters"],
+			minlength: [2, "Message must be at least 2 characters long"],
+			maxlength: [200, "Message must not exceed 500 characters"],
 		},
 	},
 	{
@@ -62,15 +69,15 @@ const Message = mongoose.model("Message", MessageSchema); // Create the Message 
 // Controller
 const sendMessage = async (req, res) => {
 	try {
-		const { fullName, email, textMessage } = req.body;
+		const { fullName, email, age, textMessage } = req.body;
 
 		// Validate the data
-		if (!fullName || !email || !textMessage) {
+		if (!fullName || !email || !age || !textMessage) {
 			return res.status(400).json({ error: "All fields are required." });
 		}
 
 		// Save the message to the database
-		const newMessage = new Message({ fullName, email, textMessage });
+		const newMessage = new Message({ fullName, email, age, textMessage });
 		await newMessage.save();
 
 		return res.status(201).json({ message: "Message sent successfully!" });
@@ -83,7 +90,7 @@ const sendMessage = async (req, res) => {
 // Routes
 app.post("/sendMessage", sendMessage); // Corrected route setup
 app.get("/", (req, res) => {
-	res.send("Hello Guys!!");
+	res.send("Hello Guys!! " + res);
 });
 
 // Start the Server
