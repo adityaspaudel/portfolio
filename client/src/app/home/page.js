@@ -133,11 +133,19 @@ const WelcomeHome = () => {
 					/>
 					<div className="text-2xl">Aaditya Paudel</div>
 				</div>
-				<div className="flex gap-20 bg-blue-300 justify-start items-start sticky mt-0 top-0 right-0">
-					<div className="p-5 hover:bg-blue-200 cursor-pointer">Home</div>
-					<div className="p-5 hover:bg-blue-200 cursor-pointer">About</div>
-					<div className="p-5 hover:bg-blue-200 cursor-pointer">Projects</div>
-					<div className="p-5 hover:bg-blue-200 cursor-pointer">Contact</div>
+				<div className="flex gap-20  justify-start items-start sticky mt-0 top-0 right-0">
+					<div className="p-10 hover:bg-blue-200 text-xl cursor-pointer">
+						Home
+					</div>
+					<div className="p-10 hover:bg-blue-200 text-xl cursor-pointer">
+						About
+					</div>
+					<div className="p-10 hover:bg-blue-200 text-xl cursor-pointer">
+						Projects
+					</div>
+					<div className="p-10 hover:bg-blue-200 text-xl cursor-pointer">
+						Contact
+					</div>
 				</div>
 			</div>
 
@@ -148,14 +156,16 @@ const WelcomeHome = () => {
 				</div>
 
 				{/* About Me ---------------------------------------------------*/}
-				<div className="flex flex-col  justify-center items-center">
-					<h1 className="uppercase font-bold text-3xl">About me</h1>
-					<hr className="w-40 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
-					<div className="flex justify-between gap-10]">
-						<div className="flex gap-2 flex-col justify-between items-center">
+				<div className="flex flex-col w-[80%] justify-center items-center">
+					{/* <h1 className="uppercase font-bold text-3xl">About me</h1> */}
+					{/* <hr className=" border-black border-2 w-full" />
+					<hr className="w-40 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" /> */}
+					<div className="flex justify-between items-center gap-10]">
+						<div className="flex gap-2 flex-col  justify-center items-center">
 							<h1 className="uppercase font-bold text-2xl p-2 ">Education</h1>
-							<div className="w-[350px] list-none p-2">
-								<div className="flex flex-col gap-4 w-[300px] list-none p-2  m-auto">
+							<hr className=" border-black border-2 w-full" />{" "}
+							<div className=" list-none p-2">
+								<div className="flex gap-4  list-none p-2  m-auto">
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2 ">
 										🎓 Hi Im Bachelor degree graduate in BCA (Bachelor in
 										Computer Application), from Oxford College of Engineering
@@ -176,177 +186,178 @@ const WelcomeHome = () => {
 								</div>
 							</div>
 						</div>
+					</div>
 
-						{/* Skills--------------------------------------------------------- */}
-						<div className="flex gap-10 justify-between items-center p-2 rounded-md bg-blue-50">
-							<div className="flex gap-2 flex-col list-none capitalize text-sm">
-								<div className="flex gap-2">
-									<h1 className="uppercase font-bold text-2xl">My skills</h1>
-									<br />
-									<br />
+					{/* Skills--------------------------------------------------------- */}
+					<div className="flex gap-10 w-full  justify-between items-center p-2 rounded-md bg-blue-50">
+						<div className="flex gap-10 flex-col list-none capitalize text-sm justify-center  w-full items-center">
+							<div className="flex justify-center  items-center gap-2 w-full">
+								<div className="flex gap-2 w-full flex-col jsutify-center items-center uppercase font-bold text-2xl  ">
+									<h1>My skills</h1>
+									<hr className="border-2 border-black w-full" />
 								</div>
-								{/* here ----------------------------*/}
-								<div className="flex gap-10 ">
-									<div className="flex flex-col gap-2 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-										<h2 className="font-bold uppercase text-lg ">
-											Frontend Technologies
-										</h2>
-										<div className="flex gap-2">
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												reactjs
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												reactjs
-											</li>
-										</div>
+							</div>
+							{/* here ----------------------------*/}
+							<div className="flex gap-10 ">
+								<div className="flex flex-col gap-2 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+									<h2 className="font-bold uppercase text-lg ">
+										Frontend Technologies
+									</h2>
+									<div className="flex gap-2">
 										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											javascript (ES6+)
-										</li>
-										<div className="flex gap-2">
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												redux toolkit
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												react-redux
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												redux-persist
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												redux-logger
-											</li>
-										</div>
-										<div className="flex gap-2">
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												css
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												tailwind css
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												tailwind-merge
-											</li>
-										</div>
-										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											html and html5
+											reactjs
 										</li>
 										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											formik and yup
+											reactjs
 										</li>
 									</div>
-									<div className="flex flex-col gap-2 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-										<h1 className="font-bold uppercase text-lg">
-											Backend Technologies
-										</h1>
-										<div className="flex gap-2">
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												Nodejs
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												Expressjs
-											</li>
-										</div>
-										<div className="flex gap-2">
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												Mongodb
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												mongoose
-											</li>
-										</div>
-										<div className="flex gap-2">
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												RESTful api
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												axios
-											</li>
-										</div>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										javascript (ES6+)
+									</li>
+									<div className="flex gap-2">
 										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											GraphQL
+											redux toolkit
 										</li>
 										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											websocket
+											react-redux
 										</li>
 										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											Server Sent Events (SSE)
+											redux-persist
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											redux-logger
 										</li>
 									</div>
-									<div className="flex flex-col gap-2 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-										<h1 className="font-bold uppercase text-lg">
-											Other tools and libraries
-										</h1>
+									<div className="flex gap-2">
 										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											vscode
+											css
 										</li>
 										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											npm
+											tailwind css
 										</li>
 										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											git and github
+											tailwind-merge
+										</li>
+									</div>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										html and html5
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										formik and yup
+									</li>
+								</div>
+								<div className="flex flex-col gap-2 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+									<h1 className="font-bold uppercase text-lg">
+										Backend Technologies
+									</h1>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											Nodejs
 										</li>
 										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											postman
+											Expressjs
 										</li>
-										<div className="flex gap-2">
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												react-toastify
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												moment
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												framer-motion
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												react-pdf/renderer
-											</li>
-										</div>
-										<div className="flex gap-2">
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												cmdk
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												clsx
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												tiptap-react
-											</li>
-										</div>
+									</div>
+									<div className="flex gap-2">
 										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-											bcypt and json web token (JWT)
+											Mongodb
 										</li>
-										<div className="flex gap-2">
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												nodemon
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												cors
-											</li>{" "}
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												dotenv
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												nodemailer
-											</li>
-										</div>
-										<div className="flex gap-2">
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												shadcn
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												lucide-react,
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												nextui
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												radixui
-											</li>
-											<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
-												chartjs
-											</li>
-										</div>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											mongoose
+										</li>
+									</div>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											RESTful api
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											axios
+										</li>
+									</div>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										GraphQL
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										websocket
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										Server Sent Events (SSE)
+									</li>
+								</div>
+								<div className="flex flex-col gap-2 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+									<h1 className="font-bold uppercase text-lg">
+										Other tools and libraries
+									</h1>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										vscode
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										npm
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										git and github
+									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										postman
+									</li>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											react-toastify
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											moment
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											framer-motion
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											react-pdf/renderer
+										</li>
+									</div>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											cmdk
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											clsx
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											tiptap-react
+										</li>
+									</div>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+										bcypt and json web token (JWT)
+									</li>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											nodemon
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											cors
+										</li>{" "}
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											dotenv
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											nodemailer
+										</li>
+									</div>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											shadcn
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											lucide-react,
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											nextui
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											radixui
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md transition-transform duration-300 hover:scale-110  px-4 py-2">
+											chartjs
+										</li>
 									</div>
 								</div>
 							</div>
