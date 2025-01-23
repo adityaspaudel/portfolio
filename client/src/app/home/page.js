@@ -178,7 +178,7 @@ const WelcomeHome = () => {
 						</div>
 
 						{/* Skills--------------------------------------------------------- */}
-						<div className="flex gap-10 bg-red-600 justify-between items-center p-2 rounded-md bg-blue-50">
+						<div className="flex gap-10 justify-between items-center p-2 rounded-md bg-blue-50">
 							<div className="flex gap-2 flex-col list-none capitalize text-sm">
 								<div className="flex gap-2">
 									<h1 className="uppercase font-bold text-2xl">My skills</h1>
