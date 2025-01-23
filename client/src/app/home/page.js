@@ -31,7 +31,7 @@ const WelcomeHome = () => {
 
 			// success message----------------------------
 			// alert("Message sent successfully!");
-			toast.success("Form submitted successfully!", {
+			toast.success("MESSAGE SENT successfully!", {
 				position: "top-right",
 				autoClose: 3000,
 				hideProgressBar: false,
@@ -128,7 +128,7 @@ const WelcomeHome = () => {
 				</div>
 
 				{/* About Me ---------------------------------------------------*/}
-				<div className="flex flex-col justify-center items-center">
+				<div className="flex flex-col justify-between items-center">
 					<h1 className="uppercase font-bold text-3xl">About me</h1>
 					<hr className="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
 					<div className="flex justify-between gap-[100px]">
@@ -158,70 +158,98 @@ const WelcomeHome = () => {
 						</div>
 
 						{/* Skills--------------------------------------------------------- */}
-						<div className="w-[400px] bg-blue-100 p-2 rounded-md">
+						<div className="w-auto p-2 rounded-md bg-blue-50">
 							<h1 className="uppercase font-bold text-2xl">My skills</h1>
-							<div className="flex gap-2 list-none uppercase text-sm">
-								<div className="flex flex-col gap-2">
-									<h2 className="font-bold text-lg">My tech stack</h2>
+							<div className="flex gap-2 list-none capitalize text-sm">
+								<div className="flex flex-col gap-2 border-2 hover:border-black p-2 rounded-md">
+									<h2 className="font-bold uppercase text-lg ">
+										Frontend Technologies
+									</h2>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											reactjs
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											reactjs
+										</li>
+									</div>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										reactjs, nextjs
-									</li>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										javascript and modern javascript
+										javascript (ES6+)
 									</li>
 
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										redux, redux toolkit, react-redux, redux-persist,
-										redux-logger
-									</li>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											redux toolkit
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											react-redux
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											redux-persist
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											redux-logger
+										</li>
+									</div>
 
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										css
-									</li>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										tailwind css, tailwind-merge
-									</li>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											css
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											tailwind css
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											tailwind-merge
+										</li>
+									</div>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										html and html5
 									</li>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										formik and yup
 									</li>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										shadcn, lucide-react, chartjs, nextui, radixui
-									</li>
 								</div>
-								<div className="flex flex-col gap-2">
-									<h1 className="font-bold text-lg">Backend</h1>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										Nodejs
-									</li>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										Expressjs
-									</li>
+								<div className="flex flex-col gap-2 border-2 hover:border-black p-2 rounded-md">
+									<h1 className="font-bold uppercase text-lg">Backend</h1>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											Nodejs
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											Expressjs
+										</li>
+									</div>
 
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										Mongodb
-									</li>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										mongoose
-									</li>
+									<div class="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											Mongodb
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											mongoose
+										</li>
+									</div>
 
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										restful api
-									</li>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										axios
-									</li>
+									<div class="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											RESTful api
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											axios
+										</li>
+									</div>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										GraphQL
 									</li>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										websocket
 									</li>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										Server Sent Events (SSE)
+									</li>
 								</div>
-								<div className="flex flex-col gap-2">
-									<h1 className="font-bold text-lg">
+								<div className="flex flex-col gap-2 border-2 hover:border-black p-2 rounded-md">
+									<h1 className="font-bold uppercase text-lg">
 										Other tools and libraries
 									</h1>
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
@@ -233,30 +261,69 @@ const WelcomeHome = () => {
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										git and github
 									</li>
-
 									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
 										postman
 									</li>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											react-toastify
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											moment
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											framer-motion
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											react-pdf/renderer
+										</li>
+									</div>
+									<div class="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											cmdk
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											clsx
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											tiptap-react
+										</li>
+									</div>
+									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+										bcypt and json web token (JWT)
+									</li>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											nodemon
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											cors
+										</li>{" "}
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											dotenv
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											nodemailer
+										</li>
+									</div>
+									<div className="flex gap-2">
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											shadcn
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											lucide-react,
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											nextui
+										</li>
 
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										react-toastify, moment, framer-motion, react-pdf/renderer,
-									</li>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										cmdk, clsx, tiptap-react
-									</li>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										bcypt and jwt
-									</li>
-
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										nodemon
-									</li>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										cors
-									</li>
-									<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
-										nodemailer
-									</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											radixui
+										</li>
+										<li className="bg-blue-200 border-2 hover:border-black p-2 rounded-md">
+											chartjs
+										</li>
+									</div>
 								</div>
 							</div>
 						</div>
