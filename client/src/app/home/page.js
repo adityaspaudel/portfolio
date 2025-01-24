@@ -15,6 +15,43 @@ const WelcomeHome = () => {
 		age: "",
 		textMessage: "",
 	});
+	const [data, setData] = useState([]);
+	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const res = await fetch("http://localhost:9000/getData"); // Fetch from your API endpoint
+				if (!res.ok) {
+					const errorData = await res.json(); // Try to parse error response
+					alert(JSON.stringify(errorData));
+					throw new Error(
+						`${res.status} ${res.statusText}: ${
+							errorData?.error || "Failed to fetch data"
+						}`
+					); // More informative error
+				}
+
+				const jsonData = await res.json();
+				console.log(JSON.stringify(jsonData));
+				setData(jsonData);
+			} catch (err) {
+				console.error("Error fetching data:", err);
+				setError(err.message); // Set the error message for display
+			}
+		};
+
+		fetchData();
+	}, []);
+
+	// if (loading) {
+	// 	return <div className="flex justify-center items-center">loading...</div>;
+	// }
+
+	// if (error) {
+	// 	return <div>Error: {error}</div>;
+	// }
 
 	const text1 = "  👋 Hello there, I'm Aaditya Paudel"; // The text to type out
 	const [displayedText, setDisplayedText] = useState(""); // State for the text being displayed
@@ -366,92 +403,111 @@ const WelcomeHome = () => {
 				</div>
 
 				{/* Contact Form ------------------------------------------------------ */}
-				<div className="border-2 hover:border-black p-8 rounded-xl transition-transform duration-300 hover:scale-110  px-4 py-2 ">
-					<h2 className="bg-blue-200 p-2">Message me</h2>
-					<form
-						onSubmit={handleSubmit}
-						className="flex flex-col gap-2 w-[400px]">
-						<div className="flex flex-col">
-							<label
-								className="p-2"
-								htmlFor="fullName">
-								Full Name
-							</label>
-							<input
-								className="border-2 border-gray-600 p-2 transition-transform duration-300 hover:scale-110  px-4 py-2"
-								name="fullName"
-								placeholder="Enter your full name"
-								type="text"
-								value={formData.fullName}
-								onChange={handleChange}
-								onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
-								onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
-							/>
+				<div className="flex gap-10">
+					<div className="border-2 hover:border-black p-8 rounded-xl transition-transform duration-300 hover:scale-110  px-4 py-2 ">
+						<h2 className="bg-blue-200 p-2">Message me</h2>
+						<form
+							onSubmit={handleSubmit}
+							className="flex flex-col gap-2 w-[400px]">
+							<div className="flex flex-col">
+								<label
+									className="p-2"
+									htmlFor="fullName">
+									Full Name
+								</label>
+								<input
+									className="border-2 border-gray-600 p-2 transition-transform duration-300 hover:scale-110  px-4 py-2"
+									name="fullName"
+									placeholder="Enter your full name"
+									type="text"
+									value={formData.fullName}
+									onChange={handleChange}
+									onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
+									onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
+								/>
+							</div>
+							<div className="flex flex-col">
+								<label
+									className="p-2"
+									htmlFor="email">
+									Email
+								</label>
+								<input
+									className="border-2 border-gray-600 p-2 transition-transform duration-300 hover:scale-110  px-4 py-2"
+									name="email"
+									type="email"
+									placeholder="Enter your email"
+									value={formData.email}
+									onChange={handleChange}
+									onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
+									onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
+								/>
+							</div>
+							<div className="flex flex-col">
+								<label
+									className="p-2"
+									htmlFor="age">
+									Age
+								</label>
+								<input
+									className="border-2 border-gray-600 p-2 transition-transform duration-300 hover:scale-110  px-4 py-2"
+									name="age"
+									type="age"
+									placeholder="Enter your age"
+									value={formData.age}
+									onChange={handleChange}
+									onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
+									onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
+								/>
+							</div>
+							<div className="flex flex-col">
+								<label
+									className="p-2"
+									htmlFor="textMessage">
+									Message
+								</label>
+								<textarea
+									className="border-2 border-gray-600 p-2 transition-transform duration-300 hover:scale-110  px-4 py-2"
+									name="textMessage"
+									placeholder="Enter Message"
+									value={formData.textMessage}
+									onChange={handleChange}
+									onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
+									onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
+								/>
+							</div>
+							<div className="flex justify-center items-center">
+								<button
+									className={cn(
+										"px-4 py-2 rounded-md border border-transparent",
+										"bg-red-500 text-white font-semibold shadow-md",
+										"hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400",
+										"active:bg-green-600 transition-colors duration-300",
+										"w-[100%]"
+									)}
+									type="submit">
+									Submit
+								</button>
+							</div>
+						</form>
+					</div>
+					{/* message received ------------------------------------------*/}
+					<div>
+						<h1 className="font-bold sentencecase">
+							previous message received
+						</h1>
+						<div>
+							{data.map((item) => (
+								<li
+									className="none"
+									key={item._id}>
+									{/* Important: Use _id as the key */}
+									<span className="text-pink-800">{item.fullName}</span>:
+									<span className=" animate-ping ">{item.textMessage}</span>
+								</li>
+							))}
 						</div>
-						<div className="flex flex-col">
-							<label
-								className="p-2"
-								htmlFor="email">
-								Email
-							</label>
-							<input
-								className="border-2 border-gray-600 p-2 transition-transform duration-300 hover:scale-110  px-4 py-2"
-								name="email"
-								type="email"
-								placeholder="Enter your email"
-								value={formData.email}
-								onChange={handleChange}
-								onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
-								onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
-							/>
-						</div>
-						<div className="flex flex-col">
-							<label
-								className="p-2"
-								htmlFor="age">
-								Age
-							</label>
-							<input
-								className="border-2 border-gray-600 p-2 transition-transform duration-300 hover:scale-110  px-4 py-2"
-								name="age"
-								type="age"
-								placeholder="Enter your age"
-								value={formData.age}
-								onChange={handleChange}
-								onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
-								onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
-							/>
-						</div>
-						<div className="flex flex-col">
-							<label
-								className="p-2"
-								htmlFor="textMessage">
-								Message
-							</label>
-							<textarea
-								className="border-2 border-gray-600 p-2 transition-transform duration-300 hover:scale-110  px-4 py-2"
-								name="textMessage"
-								placeholder="Enter Message"
-								value={formData.textMessage}
-								onChange={handleChange}
-								onFocus={(e) => (e.target.style.color = "#0b7f05")} // Focus style
-								onBlur={(e) => (e.target.style.color = "#898686")} // Unfocus style
-							/>
-						</div>
-						<div className="flex justify-center items-center">
-							<button
-								className={cn(
-									"px-4 py-2 rounded-md border border-transparent",
-									"bg-red-500 text-white font-semibold shadow-md",
-									"hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400",
-									"active:bg-green-600 transition-colors duration-300",
-									"w-[100%]"
-								)}
-								type="submit">
-								Submit
-							</button>
-						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>

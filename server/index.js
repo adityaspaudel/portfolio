@@ -11,7 +11,7 @@ const port = process.env.PORT; // Updated port to match your example
 // MongoDB Connection
 const dbConnect = async () => {
 	try {
-		await mongoose.connect("mongodb://127.0.0.1:27017/portfolio");
+		await mongoose.connect("mongodb://127.0.0.1:27017/portfolioDb");
 		console.log("Successfully connected to MongoDB");
 	} catch (err) {
 		console.error("Error occurred:", err);
@@ -92,6 +92,31 @@ app.post("/sendMessage", sendMessage); // Corrected route setup
 app.get("/", (req, res) => {
 	res.send("successful communication");
 });
+
+// GET route to fetch all data
+app.get("/getData", async (req, res) => {
+	try {
+		const data = await Message.find(); // Fetch all documents
+		res.json(data); // Send data as JSON
+	} catch (error) {
+		console.error("Error fetching data:", error);
+		res.status(500).json({ error: "Failed to fetch data" });
+	}
+});
+
+// // GET route to fetch data by ID (example)
+// router.get("/getData/:id", async (req, res) => {
+// 	try {
+// 		const data = await DataModel.findById(req.params.id);
+// 		if (!data) {
+// 			return res.status(404).json({ error: "Data not found" });
+// 		}
+// 		res.json(data);
+// 	} catch (error) {
+// 		console.error("Error fetching data:", error);
+// 		res.status(500).json({ error: "Failed to fetch data" });
+// 	}
+// });
 
 // Start the Server
 app.listen(port, () => {
