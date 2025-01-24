@@ -131,21 +131,21 @@ const WelcomeHome = () => {
 					href="https://github.com/adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-black p-2 hover:bg-green-200 hover:rounded-tr-xl cursor-pointer">
+					className="text-black p-2 hover:bg-green-200 hover:rounded-tr-xl cursor-pointer transition-transform duration-300 hover:scale-110  px-4 py-2">
 					<FaGithub />
 				</a>
 				<a
 					href="https://www.linkedin.com/in/adityaspaudel/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-600 p-2 hover:bg-green-200 cursor-pointer">
+					className="text-blue-600 p-2 hover:bg-green-200 cursor-pointer transition-transform duration-300 hover:scale-110  px-4 py-2">
 					<FaLinkedin />
 				</a>
 				<a
 					href="https://x.com/adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-600 p-2 hover:bg-green-200 cursor-pointer">
+					className="text-blue-600 p-2 hover:bg-green-200 cursor-pointer transition-transform duration-300 hover:scale-110  px-4 py-2">
 					<FaTwitter />
 				</a>
 
@@ -153,7 +153,7 @@ const WelcomeHome = () => {
 					href="https://www.instagram.com/adityas.paudel/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-red-600 p-2 hover:bg-green-200 hover:rounded-br-xl cursor-pointer">
+					className="text-red-600 p-2 hover:bg-green-200 hover:rounded-br-xl cursor-pointer transition-transform duration-300 hover:scale-110  px-4 py-2">
 					<FaInstagram />
 				</a>
 			</div>
@@ -503,7 +503,8 @@ const WelcomeHome = () => {
 									key={item._id}>
 									{/* Important: Use _id as the key */}
 									<span className="text-pink-800">{item.fullName}</span>:
-									<span className=" animate-ping ">{item.textMessage}</span>
+									{/* <span className=" animate-ping">{item.textMessage}</span> */}
+									<span className=" ">{item.textMessage}</span>
 								</li>
 							))}
 						</div>
