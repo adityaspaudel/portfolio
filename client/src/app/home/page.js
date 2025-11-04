@@ -6,6 +6,7 @@ import axios from "axios";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Link from "next/link";
 
 export default function WelcomeHome() {
   const [formData, setFormData] = useState({
@@ -61,10 +62,10 @@ export default function WelcomeHome() {
   };
 
   return (
-    <div className="font-sans min-h-screen bg-blue-50 text-gray-800">
+    <div className="font-sans min-h-screen bg-blue-50 text-gray-800 px-8">
       {/* Header */}
       <header className="flex justify-between items-center p-4 bg-white shadow-md">
-        <div className="flex items-center gap-3">
+        <Link href={`https://github.com/adityaspaudel`} className="flex items-center gap-3">
           <Image
             src="/avatar-aaditya.jpg"
             height={60}
@@ -73,7 +74,7 @@ export default function WelcomeHome() {
             className="rounded-full"
           />
           <h1 className="font-bold text-xl">Aaditya Paudel</h1>
-        </div>
+        </Link>
         <nav className="flex gap-6 text-gray-600 text-lg">
           <span className="hover:text-blue-600 cursor-pointer">Home</span>
           <span className="hover:text-blue-600 cursor-pointer">About</span>
@@ -143,7 +144,60 @@ export default function WelcomeHome() {
           </div>
         </div>
       </section>
-
+      <section className="flex flex-col content-center items-center text-black">
+        <h1 className="text-2xl font-bold">My Projects</h1>
+        <div className="flex w-full justify-around items-center">
+          <div>
+            <Link
+              href="https://github.com/adityaspaudel/socialmedia"
+              className="font-bold hover:underline hover:text-blue-600"
+            >
+              Socialmedia
+            </Link>
+            <p>A Socialmedia Website</p>
+          </div>
+          <div>
+            <Link
+              href={`https://github.com/adityaspaudel/eKharid`}
+              className="font-bold hover:underline hover:text-blue-600"
+            >
+              eKharid
+            </Link>
+            <p>An E-commerce Website</p>
+            {/* <ul>
+              <li>Frontend</li>
+              <li>React.js (Hooks & Context API)</li>
+              <li>Next.js (App Router)</li>
+              <li>Tailwind CSS</li>
+              <li>Redux Toolkit</li>
+              <li>Formik & Yup</li>
+            </ul>
+            <ul>
+              <li>Node.js & Express.js</li>
+              <li>MongoDB with Mongoose ORM</li>{" "}
+              <li>JWT Authentication & bcrypt</li>
+            </ul> */}
+          </div>
+          <div>
+            <Link
+              href={`https://github.com/adityaspaudel/niwaas`}
+              className="font-bold hover:underline hover:text-blue-600"
+            >
+              Niwaas
+            </Link>
+            <p>A Hotel Management System</p>
+          </div>
+          <div>
+            <Link
+              href={`https://github.com/adityaspaudel/miniProjects`}
+              className="font-bold hover:underline hover:text-blue-600"
+            >
+              MiniProjects
+            </Link>
+            <p> 30+ small projects</p>
+          </div>
+        </div>
+      </section>
       {/* Contact Section */}
       <section className="flex flex-col md:flex-row justify-center gap-8 py-12 px-6">
         <form
@@ -175,7 +229,7 @@ export default function WelcomeHome() {
             max="70"
             placeholder="Age"
             className="border p-2 w-full mb-3 rounded"
-            value={formData.age} 
+            value={formData.age}
             onChange={handleChange}
           />
           <textarea
