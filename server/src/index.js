@@ -16,7 +16,7 @@ app.use(cors());
 dbConnect();
 
 // ---------------- ROUTES ----------------
-app.use("/api/messages", messageRoute);
+app.use(messageRoute);
 
 // ---------------- 404 HANDLER ----------------
 app.use((req, res, next) => {
@@ -57,5 +57,3 @@ const PORT = process.env.PORT || 9000;
 const server = app.listen(PORT, () => {
 	console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
-
-
