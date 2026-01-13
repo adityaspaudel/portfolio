@@ -3,7 +3,7 @@ const { sendMessage, getData } = require("../controllers/messageController");
 const router = express.Router();
 
 // Routes----------------------------------------
-router.post("/sendMessage", sendMessage); // Corrected route setup
-router.get("/getData", getData);
+router.post("/message/sendMessage", sendMessage); // Corrected route setup
+router.get("/message/getMessage", getData);
 
 module.exports = router;

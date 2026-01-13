@@ -33,7 +33,7 @@ export default function WelcomeHome() {
 
 	const fetchData = async () => {
 		try {
-			const res = await fetch("http://localhost:9000/getData");
+			const res = await fetch("http://localhost:9000/message/getMessage");
 			const jsonData = await res.json();
 			setData(jsonData);
 		} catch (err) {
@@ -54,7 +54,7 @@ export default function WelcomeHome() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			await axios.post("http://localhost:9000/sendMessage", formData);
+			await axios.post("http://localhost:9000/message/sendMessage", formData);
 			toast.success("Message sent successfully!");
 			setFormData({ fullName: "", email: "", age: "", textMessage: "" });
 			fetchData();
@@ -81,15 +81,32 @@ export default function WelcomeHome() {
 					<h1 className="font-bold text-xl">Aaditya Paudel</h1>
 				</Link>
 				<nav className="flex gap-6 text-gray-600 text-lg">
-					<span className="hover:text-blue-600 cursor-pointer">Home</span>
-					<span className="hover:text-blue-600 cursor-pointer">About</span>
-					<span className="hover:text-blue-600 cursor-pointer">Projects</span>
-					<span className="hover:text-blue-600 cursor-pointer">Contact</span>
+					<a href="#home">
+						<span className="hover:text-blue-600 cursor-pointer hover:underline">
+							Home
+						</span>
+					</a>
+					<span className="hover:text-blue-600 cursor-pointer hover:underline">
+						About
+					</span>
+					<a href="#projects">
+						<span className="hover:text-blue-600 cursor-pointer hover:underline">
+							Projects
+						</span>
+					</a>
+					<a href="#contacts">
+						<span className="hover:text-blue-600 cursor-pointer hover:underline">
+							Contact
+						</span>
+					</a>
 				</nav>
 			</header>
 
 			{/* Social Icons */}
-			<div className="fixed top-1/2 left-2 -translate-y-1/2 flex flex-col gap-4 text-2xl">
+			<div
+				className="fixed top-1/2 left-2 -translate-y-1/2 flex flex-col gap-4 text-2xl"
+				id="contacts"
+			>
 				<a href="https://github.com/adityaspaudel" target="_blank">
 					<FaGithub className="hover:text-blue-600" />
 				</a>
@@ -105,7 +122,10 @@ export default function WelcomeHome() {
 			</div>
 
 			{/* Hero Section */}
-			<section className="flex flex-col justify-center items-center text-center py-16">
+			<section
+				className="flex flex-col justify-center items-center text-center py-16"
+				id="home"
+			>
 				<h2 className="text-4xl font-bold bg-blue-500 text-white px-6 py-2 rounded">
 					{displayedText}
 				</h2>
@@ -149,10 +169,10 @@ export default function WelcomeHome() {
 					</div>
 				</div>
 			</section>
-			<section className="flex flex-col content-center items-center text-black">
+			<section className="flex flex-col content-center items-center text-black mt-2">
 				<h1 className="text-2xl font-bold">My Projects</h1>
-				<div className="flex w-full justify-around items-center">
-					<div>
+				<div className="flex w-full justify-around items-center" id="projects">
+					<div className="hover:bg-blue-100 p-6">
 						<Link
 							href="https://github.com/adityaspaudel/socialmedia"
 							className="font-bold hover:underline hover:text-blue-600"
@@ -161,7 +181,7 @@ export default function WelcomeHome() {
 						</Link>
 						<p>A Socialmedia Website</p>
 					</div>
-					<div>
+					<div className="hover:bg-blue-100 p-6">
 						<Link
 							href={`https://github.com/adityaspaudel/eKharid`}
 							className="font-bold hover:underline hover:text-blue-600"
@@ -183,7 +203,7 @@ export default function WelcomeHome() {
               <li>JWT Authentication & bcrypt</li>
             </ul> */}
 					</div>
-					<div>
+					<div className="hover:bg-blue-100 p-6">
 						<Link
 							href={`https://github.com/adityaspaudel/niwaas`}
 							className="font-bold hover:underline hover:text-blue-600"
@@ -192,7 +212,7 @@ export default function WelcomeHome() {
 						</Link>
 						<p>A Hotel Management System</p>
 					</div>
-					<div>
+					<div className="hover:bg-blue-100 p-6">
 						<Link
 							href={`https://github.com/adityaspaudel/miniProjects`}
 							className="font-bold hover:underline hover:text-blue-600"
@@ -255,12 +275,12 @@ export default function WelcomeHome() {
 				</form>
 
 				{/* Messages */}
-				<div className="bg-white border rounded-md p-6 shadow-sm w-full max-w-md">
+				<div className="bg-white border rounded-md p-6 shadow-sm w-full h-96 max-w-md overflow-auto">
 					<h2 className="text-xl font-bold mb-4">Previous Messages</h2>
 					<ul className="space-y-2 text-sm">
 						{data.length > 0 ? (
 							data.map((item) => (
-								<li key={item._id} className="border-b pb-1">
+								<li key={item._id} className="border-b p-2 hover:bg-blue-100 ">
 									<span className="font-semibold text-blue-700">
 										{item.fullName}
 									</span>
