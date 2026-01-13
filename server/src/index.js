@@ -1,23 +1,59 @@
 const express = require("express");
 const cors = require("cors");
-const messageRoute = require("./routes/messageRoute");
-const app = express();
-// dotenv config
 const dotenv = require("dotenv");
+const messageRoute = require("./routes/messageRoute");
 const dbConnect = require("./db/connection");
+
 dotenv.config();
 
-// Middlewares
+const app = express();
+
+// ---------------- MIDDLEWARES ----------------
 app.use(express.json());
 app.use(cors());
 
-// database Connection
+// ---------------- DATABASE ----------------
 dbConnect();
 
-// routes
-app.use(messageRoute);
-// Start the Server
+// ---------------- ROUTES ----------------
+app.use("/api/messages", messageRoute);
+
+// ---------------- 404 HANDLER ----------------
+app.use((req, res, next) => {
+	const error = new Error(`Route not found - ${req.originalUrl}`);
+	error.statusCode = 404;
+	next(error);
+});
+
+// ---------------- GLOBAL ERROR HANDLER ----------------
+app.use((err, req, res, next) => {
+	console.error("🔥 Error:", err.message);
+
+	const statusCode = err.statusCode || 500;
+
+	res.status(statusCode).json({
+		success: false,
+		message: err.message || "Internal Server Error",
+		stack: process.env.NODE_ENV === "production" ? null : err.stack,
+	});
+});
+
+// ---------------- SERVER ----------------
 const PORT = process.env.PORT || 9000;
-app.listen(PORT, () => {
-	console.log(`Server is running on http://localhost:${PORT}`);
+const server = app.listen(PORT, () => {
+	console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
+
+// ---------------- PROCESS-LEVEL ERRORS ----------------
+
+// Unhandled Promise Rejection
+process.on("unhandledRejection", (err) => {
+	console.error("🔥 Unhandled Rejection:", err);
+	server.close(() => process.exit(1));
+});
+
+// Uncaught Exception
+process.on("uncaughtException", (err) => {
+	console.error("🔥 Uncaught Exception:", err);
+	process.exit(1);
 });
