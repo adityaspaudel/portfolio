@@ -101,6 +101,35 @@ export default function WelcomeHome() {
 					</a>
 				</nav>
 			</header>
+			<div className="w-full mt-4 flex justify-center">
+				<div className="relative h-[400px] w-[80%] rounded-xl overflow-hidden">
+					{/* Background Image */}
+					<img
+						src="/photoCover.jpg"
+						alt="Cover"
+						className="object-cover h-[600px] w-full"
+					/>
+
+					{/* Dark Overlay */}
+					<div className="absolute inset-0 bg-black/50" />
+
+					{/* Content */}
+					<section
+						id="home"
+						className="absolute inset-0 flex flex-col items-end justify-center text-right px-6 md:px-16"
+					>
+						<h1 className="text-xl md:text-2xl lg:text-2xl font-bold text-black bg-blue-50/20 px-6 py-3 rounded-lg shadow-lg">
+							{displayedText}
+						</h1>
+
+						<p className="mt-6 max-w-2xl text-gray-200 leading-relaxed text-sm md:text-base">
+							I`m a passionate web developer specializing in modern JavaScript,
+							React.js, Next.js, and Node.js. Constantly learning and building
+							real-world projects to sharpen my skills.
+						</p>
+					</section>
+				</div>
+			</div>
 
 			{/* Social Icons */}
 			<div
@@ -122,7 +151,7 @@ export default function WelcomeHome() {
 			</div>
 
 			{/* Hero Section */}
-			<section
+			{/* <section
 				className="flex flex-col justify-center items-center text-center py-16"
 				id="home"
 			>
@@ -130,11 +159,11 @@ export default function WelcomeHome() {
 					{displayedText}
 				</h2>
 				<p className="mt-6 max-w-2xl text-gray-700 leading-relaxed">
-					I’m a passionate web developer specializing in modern JavaScript,
+					I`m a passionate web developer specializing in modern JavaScript,
 					React.js, Next.js, Node.js, and responsive web design. Constantly
 					learning and building projects to improve my craft.
 				</p>
-			</section>
+			</section> */}
 
 			{/* Skills Section */}
 			<section className="px-6 py-10 bg-white">
