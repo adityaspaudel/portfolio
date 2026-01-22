@@ -118,7 +118,7 @@ export default function WelcomeHome() {
 					/>
 
 					{/* Overlay */}
-					<div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
+					<div className="absolute inset-0 bg-gradient-to-r from-black/20 to-black/30" />
 
 					{/* Content */}
 					<div
@@ -140,20 +140,51 @@ export default function WelcomeHome() {
 
 			{/* Social Icons */}
 			<div
-				className="fixed top-1/2 left-2 -translate-y-1/2 flex flex-col gap-4 text-2xl"
+				className="fixed top-1/2 left-4 -translate-y-1/2 flex flex-col gap-4 z-50"
 				id="contacts"
 			>
-				<a href="https://github.com/adityaspaudel" target="_blank">
-					<FaGithub className="hover:text-blue-600" />
+				{/* GitHub */}
+				<a
+					href="https://github.com/adityaspaudel"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md hover:bg-gray-100 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+					aria-label="GitHub"
+				>
+					<FaGithub className="text-gray-800 text-xl" />
 				</a>
-				<a href="https://www.linkedin.com/in/adityaspaudel/" target="_blank">
-					<FaLinkedin className="hover:text-blue-600" />
+
+				{/* LinkedIn */}
+				<a
+					href="https://www.linkedin.com/in/adityaspaudel/"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md hover:bg-blue-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+					aria-label="LinkedIn"
+				>
+					<FaLinkedin className="text-blue-700 text-xl" />
 				</a>
-				<a href="https://x.com/adityaspaudel" target="_blank">
-					<FaTwitter className="hover:text-blue-600" />
+
+				{/* X / Twitter */}
+				<a
+					href="https://x.com/adityaspaudel"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md hover:bg-blue-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+					aria-label="X / Twitter"
+				>
+					<FaTwitter className="text-blue-500 text-xl" />
 				</a>
-				<a href="https://www.instagram.com/adityas.paudel/" target="_blank">
-					<FaInstagram className="hover:text-blue-600" />
+
+				{/* Instagram */}
+				<a
+					href="https://www.instagram.com/adities.paudel/"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md hover:bg-pink-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
+					aria-label="Instagram"
+				>
+					<FaInstagram className="text-pink-500 text-xl" />
 				</a>
 			</div>
 
