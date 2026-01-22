@@ -119,7 +119,8 @@ export default function WelcomeHome() {
 						alt="Cover"
 						fill
 						priority
-						className="object-cover object-[center_15%]"
+						className="object-cover object-[center_15%] rounded-2xl"
+						style={{ filter: "brightness(0.8)" }}
 					/>
 
 					{/* Overlay */}
