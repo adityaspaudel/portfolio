@@ -20,7 +20,11 @@ export default function WelcomeHome() {
 	const text = "👋 Hello there, I'm Aaditya Paudel";
 	const [displayedText, setDisplayedText] = useState("");
 	const [index, setIndex] = useState(0);
+	const [visible, setVisible] = useState(false);
 
+	useEffect(() => {
+		setVisible(true); // Trigger animation on mount
+	}, []);
 	useEffect(() => {
 		if (index < text.length) {
 			const timeout = setTimeout(() => {
@@ -130,11 +134,20 @@ export default function WelcomeHome() {
 							{displayedText}
 						</h1>
 
-						<p className="mt-6 max-w-2xl text-gray-200 text-sm md:text-base leading-relaxed">
-							I’m a passionate web developer specializing in modern JavaScript,
-							React.js, Next.js, and Node.js. Constantly learning and building
-							real-world projects to sharpen my skills.
-						</p>
+						<div
+							className={`mt-6 max-w-2xl text-gray-200 text-sm md:text-base leading-relaxed
+                  transform transition-all duration-2000 ease-out
+                  ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-95"}`}
+						>
+							<p className="text-2xl font-bold">
+								Bachelor in Computer Application (BCA) Graduate
+							</p>
+							<p>
+								I’m a passionate web developer specializing in modern
+								JavaScript, React.js, Next.js, and Node.js. Constantly learning
+								and building real-world projects to sharpen my skills.
+							</p>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -413,6 +426,51 @@ export default function WelcomeHome() {
 			</section>
 
 			<ToastContainer />
+		</div>
+	);
+}
+
+function AnimatedBio({ title, textExtra, typingSpeed = 30 }) {
+	const [visible, setVisible] = useState(false);
+	const [typedText, setTypedText] = useState("");
+
+	useEffect(() => {
+		setVisible(true);
+
+		let index = 0;
+		const interval = setInterval(() => {
+			setTypedText((prev) => prev + textExtra[index]);
+			index++;
+			if (index === textExtra.length) clearInterval(interval);
+		}, typingSpeed);
+
+		return () => clearInterval(interval);
+	}, [textExtra, typingSpeed]);
+
+	// Split typedText into lines for staggered effect (optional)
+	const lines = typedText.split("\n");
+
+	return (
+		<div className="mt-6 max-w-2xl text-gray-200 text-sm md:text-base leading-relaxed">
+			{/* Title with fade + scale + slide */}
+			<h1
+				className={`text-2xl underline mb-2 transition-all duration-700 ease-out transform
+          ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95"}`}
+			>
+				{title}
+			</h1>
+
+			{/* Typed text with staggered fade-in */}
+			{lines.map((line, index) => (
+				<p
+					key={index}
+					className={`transition-all duration-500 ease-out
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+					style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
+				>
+					{line}
+				</p>
+			))}
 		</div>
 	);
 }
