@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 
 export default function WelcomeHome() {
+	const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 	const [formData, setFormData] = useState({
 		fullName: "",
 		email: "",
@@ -33,7 +34,7 @@ export default function WelcomeHome() {
 
 	const fetchData = async () => {
 		try {
-			const res = await fetch("http://localhost:9000/message/getMessage");
+			const res = await fetch(`${NEXT_PUBLIC_API_URL}/message/getMessage`);
 			const jsonData = await res.json();
 			setData(jsonData);
 		} catch (err) {
@@ -54,7 +55,7 @@ export default function WelcomeHome() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			await axios.post("http://localhost:9000/message/sendMessage", formData);
+			await axios.post(`${NEXT_PUBLIC_API_URL}/message/sendMessage`, formData);
 			toast.success("Message sent successfully!");
 			setFormData({ fullName: "", email: "", age: "", textMessage: "" });
 			fetchData();
