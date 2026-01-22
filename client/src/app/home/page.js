@@ -328,11 +328,11 @@ export default function WelcomeHome() {
 			</section>
 
 			{/* Contact Section */}
-			<section className="flex flex-col md:flex-row justify-center gap-8 py-12 px-6 bg-gray-50">
+			<section className="flex flex-col md:flex-row justify-center gap-8 py-12 px-6 bg-gray-50 ">
 				{/* Contact Form */}
 				<form
 					onSubmit={handleSubmit}
-					className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1 duration-300"
+					className="bg-white rounded-2xl shadow-lg p-8 w-full h-96 max-w-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1 duration-300"
 				>
 					<h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
 						Message Me
@@ -387,8 +387,8 @@ export default function WelcomeHome() {
 				</form>
 
 				{/* Previous Messages */}
-				<div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md border-t-4 border-green-500 overflow-y-auto h-96">
-					<h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
+				<div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md border-t-4 border-green-500 overflow-y-auto h-[500px] relative">
+					<h2 className="text-2xl font-bold mb-6 text-white text-center sticky top-0 bg-blue-500 p-2 z-10">
 						Previous Messages
 					</h2>
 
