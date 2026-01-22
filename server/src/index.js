@@ -17,7 +17,12 @@ dbConnect();
 
 // ---------------- ROUTES ----------------
 app.use(messageRoute);
-
+app.get("/", (req, res) => {
+	res.status(200).json({
+		success: true,
+		message: "Portfolio API is running 🚀",
+	});
+});
 // ---------------- 404 HANDLER ----------------
 app.use((req, res, next) => {
 	const error = new Error(`Route not found - ${req.originalUrl}`);
