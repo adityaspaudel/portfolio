@@ -7,9 +7,14 @@ import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "@/lib/redux/slices/themeSlice";
 
 export default function WelcomeHome() {
 	const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+	const dispatch = useDispatch();
+	const theme = useSelector((state) => state.theme.theme);
 	const [formData, setFormData] = useState({
 		fullName: "",
 		email: "",
@@ -69,9 +74,13 @@ export default function WelcomeHome() {
 	};
 
 	return (
-		<div className="font-sans min-h-screen bg-blue-50 text-gray-800 px-8">
+		<div
+			className={`font-sans min-h-screen bg-blue-50 text-gray-800 px-8 ${theme == "light" ? "bg-gray-800" : "bg-gray-100"}`}
+		>
 			{/* Header */}
-			<header className="sticky top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
+			<header
+				className={`sticky top-0 z-50 bg-white/90 backdrop-blur shadow-sm ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+			>
 				<div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 					<Link
 						href="https://github.com/adityaspaudel"
@@ -84,10 +93,22 @@ export default function WelcomeHome() {
 							alt="Aaditya Paudel"
 							className="rounded-full ring-2 ring-blue-500"
 						/>
-						<h1 className="font-bold text-xl text-gray-800">Aaditya Paudel</h1>
+						<h1
+							className={`font-bold text-xl text-gray-800 ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+						>
+							Aaditya Paudel
+						</h1>
 					</Link>
 
-					<nav className="hidden md:flex items-center gap-6 text-gray-600 text-sm font-medium">
+					<nav
+						className={`hidden md:flex items-center gap-6 text-gray-600 text-sm font-medium ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+					>
+						<button
+							onClick={() => dispatch(toggleTheme())}
+							className="px-4 py-2 rounded bg-black text-white"
+						>
+							Current Theme: {theme}
+						</button>{" "}
 						<a href="#home" className="hover:text-blue-600 transition-colors">
 							Home
 						</a>
@@ -204,18 +225,20 @@ export default function WelcomeHome() {
 			</div>
 
 			{/* Skills Section */}
-			<section className="px-6 py-12 bg-gray-50">
-				<h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
-					My Skills
-				</h2>
+			<section
+				className={`px-6 py-12 bg-gray-50 ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+			>
+				<h2 className="text-3xl font-bold text-center mb-10 ">My Skills</h2>
 
-				<div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+				<div
+					className={`flex flex-wrap justify-center gap-6 max-w-6xl mx-auto ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+				>
 					{/* Frontend */}
-					<div className="flex-1 min-w-[250px] max-w-[350px] bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-t-4 border-blue-500">
-						<h3 className="text-xl font-semibold mb-4 text-gray-800">
-							Frontend
-						</h3>
-						<ul className="list-disc list-inside space-y-2 text-sm text-gray-700">
+					<div
+						className={`flex-1 min-w-[250px] max-w-[350px] bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-t-4 border-blue-500 ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+					>
+						<h3 className="text-xl font-semibold mb-4 ">Frontend</h3>
+						<ul className="list-disc list-inside space-y-2 text-sm ">
 							<li>React.js, Next.js (App Router)</li>
 							<li>Redux Toolkit, React-Redux</li>
 							<li>Tailwind CSS, HTML5, CSS3</li>
@@ -224,11 +247,11 @@ export default function WelcomeHome() {
 					</div>
 
 					{/* Backend */}
-					<div className="flex-1 min-w-[250px] max-w-[350px] bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-t-4 border-green-500">
-						<h3 className="text-xl font-semibold mb-4 text-gray-800">
-							Backend
-						</h3>
-						<ul className="list-disc list-inside space-y-2 text-sm text-gray-700">
+					<div
+						className={`flex-1 min-w-[250px] max-w-[350px] bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-t-4 border-green-500 ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+					>
+						<h3 className="text-xl font-semibold mb-4 ">Backend</h3>
+						<ul className="list-disc list-inside space-y-2 text-sm ">
 							<li>Node.js, Express.js</li>
 							<li>MongoDB, Mongoose</li>
 							<li>REST APIs, Axios</li>
@@ -238,11 +261,11 @@ export default function WelcomeHome() {
 					</div>
 
 					{/* Tools */}
-					<div className="flex-1 min-w-[250px] max-w-[350px] bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-t-4 border-purple-500">
-						<h3 className="text-xl font-semibold mb-4 text-gray-800">
-							Tools & Libraries
-						</h3>
-						<ul className="list-disc list-inside space-y-2 text-sm text-gray-700">
+					<div
+						className={`flex-1 min-w-[250px] max-w-[350px] bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-t-4 border-purple-500 ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+					>
+						<h3 className="text-xl font-semibold mb-4 ">Tools & Libraries</h3>
+						<ul className="list-disc list-inside space-y-2 text-sm ">
 							<li>Git & GitHub, VSCode, Postman</li>
 							<li>React-Toastify, Framer Motion</li>
 							<li>shadcn/ui, Chart.js</li>
@@ -253,7 +276,9 @@ export default function WelcomeHome() {
 			</section>
 
 			{/* Project showcase card  */}
-			<section className="mt-6 px-4">
+			<section
+				className={`mt-6 px-4 ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+			>
 				<h1 className="text-3xl font-bold text-center mb-8">My Projects</h1>
 
 				<div
@@ -261,16 +286,18 @@ export default function WelcomeHome() {
 					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
 				>
 					{/* Social Media Project */}
-					<div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+					<div
+						className={` rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 ${theme == "light" ? "bg-gray-700 text-white" : "bg-gray-100 text-black"}`}
+					>
 						<Link
 							href="https://github.com/adityaspaudel/socialmedia"
 							className="text-xl font-semibold text-blue-600 hover:underline"
 						>
 							Socialmedia
 						</Link>
-						<p className="text-sm text-gray-500 mb-4">A Social Media Website</p>
+						<p className="text-sm  mb-4">A Social Media Website</p>
 
-						<ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
+						<ul className="list-disc list-inside space-y-2  text-sm">
 							<li>
 								Full-stack MERN app using Next.js App Router and Express +
 								MongoDB.
@@ -291,16 +318,18 @@ export default function WelcomeHome() {
 					</div>
 
 					{/* eKharid Project */}
-					<div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+					<div
+						className={` rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 ${theme == "light" ? "bg-gray-700 text-white" : "bg-gray-100 text-black"}`}
+					>
 						<Link
 							href="https://github.com/adityaspaudel/eKharid"
 							className="text-xl font-semibold text-blue-600 hover:underline"
 						>
 							eKharid
 						</Link>
-						<p className="text-sm text-gray-500 mb-4">An E-commerce Website</p>
+						<p className="text-sm mb-4">An E-commerce Website</p>
 
-						<ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
+						<ul className="list-disc list-inside space-y-2  text-sm">
 							<li>
 								Full-stack e-commerce app built with Next.js and Express +
 								MongoDB.
@@ -316,18 +345,18 @@ export default function WelcomeHome() {
 					</div>
 
 					{/* Mini Projects */}
-					<div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+					<div
+						className={` rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 ${theme == "light" ? "bg-gray-700 text-white" : "bg-gray-100 text-black"}`}
+					>
 						<Link
 							href="https://github.com/adityaspaudel/miniProjects"
 							className="text-xl font-semibold text-blue-600 hover:underline"
 						>
 							MiniProjects
 						</Link>
-						<p className="text-sm text-gray-500 mb-4">
-							50+ Small React Projects
-						</p>
+						<p className="text-sm  mb-4">50+ Small React Projects</p>
 
-						<ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
+						<ul className="list-disc list-inside space-y-2  text-sm">
 							<li>
 								Curated collection of React projects using modern practices.
 							</li>
@@ -342,13 +371,15 @@ export default function WelcomeHome() {
 			</section>
 
 			{/* Contact Section */}
-			<section className="flex flex-col md:flex-row justify-center gap-8 py-12 px-6 bg-gray-50 ">
+			<section
+				className={`flex flex-col md:flex-row justify-center gap-8 py-12 px-6 bg-gray-50 ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+			>
 				{/* Contact Form */}
 				<form
 					onSubmit={handleSubmit}
-					className="bg-white rounded-2xl shadow-lg p-8 w-full h-96 max-w-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1 duration-300"
+					className=" rounded-2xl shadow-lg p-8 w-full h-96 max-w-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1 duration-300"
 				>
-					<h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+					<h2 className="text-2xl font-bold mb-6 text-center ">
 						Message Me
 					</h2>
 
@@ -386,7 +417,7 @@ export default function WelcomeHome() {
 						name="textMessage"
 						placeholder="Message"
 						className="border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-						rows="5"
+						rows="2"
 						value={formData.textMessage}
 						onChange={handleChange}
 						required
@@ -399,9 +430,10 @@ export default function WelcomeHome() {
 						Submit
 					</button>
 				</form>
-
 				{/* Previous Messages */}
-				<div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md border-t-4 border-green-500 overflow-y-auto h-[500px] relative">
+				<div
+					className={`bg-white rounded-2xl shadow-lg p-6 w-full max-w-md border-t-4 border-green-500 overflow-y-auto h-[500px] relative ${theme == "light" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"}`}
+				>
 					<h2 className="text-2xl font-bold mb-6 text-white text-center sticky top-0 bg-blue-500 p-2 z-10">
 						Previous Messages
 					</h2>
@@ -416,7 +448,7 @@ export default function WelcomeHome() {
 									<span className="font-semibold text-green-700">
 										{item.fullName}
 									</span>
-									: <span className="text-gray-700">{item.textMessage}</span>
+									: <span className="text-gray-400">{item.textMessage}</span>
 								</li>
 							))}
 						</ul>
