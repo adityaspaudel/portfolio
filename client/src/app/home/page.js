@@ -373,7 +373,7 @@ export default function WelcomeHome() {
 						<ProjectCard
 							title="eKharid"
 							githubLink="https://github.com/adityaspaudel/eKharid"
-							deployLink=""
+							deployLink="https://ekharid-fe.vercel.app"
 							imagess={`/ekharid.png`}
 							desc="An E-commerce Website"
 							items={[
