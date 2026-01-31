@@ -217,14 +217,30 @@ export default function WelcomeHome() {
 			</div>
 
 			{/* Skills Section */}
-			<section className={`px-6 py-12 ${bgMain}`}>
-				<h2 className="text-3xl font-bold text-center mb-10">My Skills</h2>
-				<div
-					className={`flex flex-wrap justify-center gap-6 max-w-6xl mx-auto`}
-				>
+			<motion.section
+				className={`mt-6 px-20 ${bgMain}`}
+				initial={{ opacity: 0, y: 50 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+			>
+				<h2 className="text-3xl font-bold text-center mb-12">My Skills</h2>
+
+				<div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
 					{/* Frontend */}
-					<div
-						className={`flex-1 min-w-[250px] max-w-[350px] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-t-4 border-blue-500 ${bgCard}`}
+					<motion.div
+						className={`flex-1 min-w-[250px] max-w-[350px] rounded-xl shadow-md 
+        hover:shadow-xl transition-all duration-300 p-6 
+        border-t-4 border-blue-500 ${bgCard}`}
+						initial={{ opacity: 0, y: 40, scale: 0.95 }}
+						whileInView={{ opacity: 1, y: 0, scale: 1 }}
+						viewport={{ once: true }}
+						transition={{
+							duration: 0.4,
+							ease: "easeOut",
+							delay: 0.1,
+						}}
+						whileHover={{ y: -10, scale: 1.04 }}
 					>
 						<h3 className="text-xl font-semibold mb-4">Frontend</h3>
 						<ul className="list-disc list-inside space-y-2 text-sm">
@@ -233,11 +249,22 @@ export default function WelcomeHome() {
 							<li>Tailwind CSS, HTML5, CSS3</li>
 							<li>Formik & Yup</li>
 						</ul>
-					</div>
+					</motion.div>
 
 					{/* Backend */}
-					<div
-						className={`flex-1 min-w-[250px] max-w-[350px] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-t-4 border-green-500 ${bgCard}`}
+					<motion.div
+						className={`flex-1 min-w-[250px] max-w-[350px] rounded-xl shadow-md 
+        hover:shadow-xl transition-all duration-300 p-6 
+        border-t-4 border-green-500 ${bgCard}`}
+						initial={{ opacity: 0, y: 40, scale: 0.95 }}
+						whileInView={{ opacity: 1, y: 0, scale: 1 }}
+						viewport={{ once: true }}
+						transition={{
+							duration: 0.4,
+							ease: "easeOut",
+							delay: 0.2,
+						}}
+						whileHover={{ y: -10, scale: 1.04 }}
 					>
 						<h3 className="text-xl font-semibold mb-4">Backend</h3>
 						<ul className="list-disc list-inside space-y-2 text-sm">
@@ -247,11 +274,22 @@ export default function WelcomeHome() {
 							<li>WebSockets, JWT, bcrypt</li>
 							<li>Multer, Cloudinary</li>
 						</ul>
-					</div>
+					</motion.div>
 
 					{/* Tools */}
-					<div
-						className={`flex-1 min-w-[250px] max-w-[350px] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-t-4 border-purple-500 ${bgCard}`}
+					<motion.div
+						className={`flex-1 min-w-[250px] max-w-[350px] rounded-xl shadow-md 
+        hover:shadow-xl transition-all duration-300 p-6 
+        border-t-4 border-purple-500 ${bgCard}`}
+						initial={{ opacity: 0, y: 40, scale: 0.95 }}
+						whileInView={{ opacity: 1, y: 0, scale: 1 }}
+						viewport={{ once: true }}
+						transition={{
+							duration: 0.4,
+							ease: "easeOut",
+							delay: 0.3,
+						}}
+						whileHover={{ y: -10, scale: 1.04 }}
 					>
 						<h3 className="text-xl font-semibold mb-4">Tools & Libraries</h3>
 						<ul className="list-disc list-inside space-y-2 text-sm">
@@ -260,9 +298,9 @@ export default function WelcomeHome() {
 							<li>shadcn/ui, Chart.js</li>
 							<li>dotenv, nodemon, cors</li>
 						</ul>
-					</div>
+					</motion.div>
 				</div>
-			</section>
+			</motion.section>
 
 			{/* Projects Section */}
 			<motion.section
@@ -303,9 +341,11 @@ export default function WelcomeHome() {
 						transition={{ type: "spring", stiffness: 300 }}
 					>
 						<ProjectCard
-							title="Socialmedia"
-							link="https://github.com/adityaspaudel/socialmedia"
+							title="MeroSanjal"
+							githubLink="https://github.com/adityaspaudel/socialmedia"
+							deployLink="https://merosanjal.vercel.app/"
 							desc="A Social Media Website"
+							imagess={`/merosanjal.png`}
 							items={[
 								"Full-stack MERN app using Next.js App Router and Express + MongoDB.",
 								"JWT authentication, profiles, posts, likes, comments, and follow system.",
@@ -332,7 +372,9 @@ export default function WelcomeHome() {
 					>
 						<ProjectCard
 							title="eKharid"
-							link="https://github.com/adityaspaudel/eKharid"
+							githubLink="https://github.com/adityaspaudel/eKharid"
+							deployLink=""
+							imagess={`/ekharid.png`}
 							desc="An E-commerce Website"
 							items={[
 								"Full-stack e-commerce app built with Next.js and Express + MongoDB.",
@@ -360,7 +402,9 @@ export default function WelcomeHome() {
 					>
 						<ProjectCard
 							title="MiniProjects"
-							link="https://github.com/adityaspaudel/miniProjects"
+							githubLink="https://github.com/adityaspaudel/miniProjects"
+							deployLink="https://mini-projects1-git-editing-aaditya-paudels-projects.vercel.app/"
+							imagess={`/miniprojects.png`}
 							desc="50+ Small React Projects"
 							items={[
 								"Curated collection of React projects using modern practices.",
@@ -463,27 +507,76 @@ export default function WelcomeHome() {
 }
 
 // ✅ ProjectCard Component to remove repetitive JSX
-function ProjectCard({ title, link, desc, items, isDark }) {
+function ProjectCard({
+	title,
+	githubLink,
+	deployLink,
+	desc,
+	items,
+	imagess,
+	isDark,
+}) {
 	const cardBg = isDark ? "bg-gray-700 text-white" : "bg-gray-100 text-black";
+
 	return (
 		<div
-			className={`rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 h-80  ${cardBg}`}
+			className={`rounded-xl overflow-hidden shadow-md hover:shadow-xl 
+      transition-all duration-300 ${cardBg}`}
 		>
-			<Link
-				href={link}
-				className="text-xl font-semibold text-blue-600 hover:underline"
-			>
-				{title}
-			</Link>
-			<p className="text-sm mb-4">{desc}</p>
-			<ul className="space-y-2 text-sm">
-				{items.map((item, idx) => (
-					<li key={idx} className="flex gap-2">
-						<span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-current opacity-70" />
-						<span>{item}</span>
-					</li>
-				))}
-			</ul>
+			{/* 🔥 HERO IMAGE */}
+			<div className="relative h-40 w-full overflow-hidden">
+				<img
+					src={imagess}
+					alt={title}
+					className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+				/>
+
+				{/* Gradient overlay */}
+				<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+				{/* Title on image */}
+				<h3 className="absolute bottom-3 left-4 text-lg font-semibold text-white">
+					{title}
+				</h3>
+			</div>
+
+			{/* CONTENT */}
+			<div className="p-6 h-80">
+				<div className="flex flex-col gap-2 text-sm">
+					<div className="flex items-center gap-2">
+						<span className="font-medium text-gray-500">GitHub:</span>
+						<Link
+							href={githubLink}
+							target="_blank"
+							className="font-semibold text-blue-600 hover:underline"
+						>
+							View Repository
+						</Link>
+					</div>
+
+					<div className="flex items-center gap-2">
+						<span className="font-medium text-gray-500">Live:</span>
+						<Link
+							href={deployLink}
+							target="_blank"
+							className="font-semibold text-blue-600 hover:underline"
+						>
+							Open Project
+						</Link>
+					</div>
+				</div>
+
+				<p className="text-sm mb-4">{desc}</p>
+
+				<ul className="space-y-2 text-sm">
+					{items.map((item, idx) => (
+						<li key={idx} className="flex gap-2">
+							<span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-current opacity-70" />
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
+			</div>
 		</div>
 	);
 }
