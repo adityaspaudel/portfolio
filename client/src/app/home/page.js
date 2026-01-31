@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "@/lib/redux/slices/themeSlice";
-
+import { motion } from "framer-motion";
 export default function WelcomeHome() {
 	const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -23,7 +23,7 @@ export default function WelcomeHome() {
 		: "bg-gray-100 text-gray-900";
 	const bgCard = isDark
 		? "bg-gray-800 text-gray-100"
-		: "bg-white text-gray-900";
+		: "bg-gray-100 text-gray-900";
 
 	const [formData, setFormData] = useState({
 		fullName: "",
@@ -74,7 +74,7 @@ export default function WelcomeHome() {
 
 		fetchMessages(); // call it immediately
 	}, [NEXT_PUBLIC_API_URL]);
-	
+
 	// Form handlers
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -94,7 +94,7 @@ export default function WelcomeHome() {
 	};
 
 	return (
-		<div className={`font-sans min-h-screen px-8 ${bgMain}`}>
+		<div className={`font-sans min-h-screen  ${bgMain}`}>
 			{/* Header */}
 			<header className={`sticky top-0 z-50 backdrop-blur shadow-sm ${bgCard}`}>
 				<div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
@@ -182,7 +182,7 @@ export default function WelcomeHome() {
 					href="https://github.com/adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md hover:bg-gray-100 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-gray-100 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white`}
 					aria-label="GitHub"
 				>
 					<FaGithub className="text-gray-800 text-xl" />
@@ -191,7 +191,7 @@ export default function WelcomeHome() {
 					href="https://www.linkedin.com/in/adityaspaudel/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md hover:bg-blue-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-blue-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white`}
 					aria-label="LinkedIn"
 				>
 					<FaLinkedin className="text-blue-700 text-xl" />
@@ -200,7 +200,7 @@ export default function WelcomeHome() {
 					href="https://x.com/adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md hover:bg-blue-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-blue-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white`}
 					aria-label="X / Twitter"
 				>
 					<FaTwitter className="text-blue-500 text-xl" />
@@ -209,7 +209,7 @@ export default function WelcomeHome() {
 					href="https://www.instagram.com/adities.paudel/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md hover:bg-pink-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
+					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-pink-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white`}
 					aria-label="Instagram"
 				>
 					<FaInstagram className="text-pink-500 text-xl" />
@@ -265,55 +265,114 @@ export default function WelcomeHome() {
 			</section>
 
 			{/* Projects Section */}
-			<section className={`mt-6 px-4 ${bgMain}`}>
+			<motion.section
+				className={`mt-6 px-20 ${bgMain}`}
+				initial={{ opacity: 0, y: 40 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				transition={{ duration: 0.6, ease: "easeOut" }}
+			>
 				<h1 className="text-3xl font-bold text-center mb-8">My Projects</h1>
-				<div
+
+				<motion.div
 					id="projects"
 					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+					initial="hidden"
+					whileInView="show"
+					viewport={{ once: true }}
+					variants={{
+						hidden: { opacity: 0 },
+						show: {
+							opacity: 1,
+							transition: { staggerChildren: 0.15 },
+						},
+					}}
 				>
 					{/* Socialmedia */}
-					<ProjectCard
-						title="Socialmedia"
-						link="https://github.com/adityaspaudel/socialmedia"
-						desc="A Social Media Website"
-						items={[
-							"Full-stack MERN app using Next.js App Router and Express + MongoDB.",
-							"JWT authentication, profiles, posts, likes, comments, and follow system.",
-							"Real-time updates with Socket.io and image uploads via Cloudinary.",
-							"Styled with Tailwind, Shadcn, NextUI and deployed on Vercel & Render.",
-						]}
-						isDark={isDark}
-					/>
+					<motion.div
+						variants={{
+							hidden: { opacity: 0, y: 30, scale: 0.95 },
+							show: {
+								opacity: 1,
+								y: 0,
+								scale: 1,
+								transition: { duration: 0.5, ease: "easeOut" },
+							},
+						}}
+						whileHover={{ y: -8, scale: 1.02 }}
+						transition={{ type: "spring", stiffness: 300 }}
+					>
+						<ProjectCard
+							title="Socialmedia"
+							link="https://github.com/adityaspaudel/socialmedia"
+							desc="A Social Media Website"
+							items={[
+								"Full-stack MERN app using Next.js App Router and Express + MongoDB.",
+								"JWT authentication, profiles, posts, likes, comments, and follow system.",
+								"Real-time updates with Socket.io and image uploads via Cloudinary.",
+								"Styled with Tailwind, Shadcn, NextUI and deployed on Vercel & Render.",
+							]}
+							isDark={isDark}
+						/>
+					</motion.div>
 
 					{/* eKharid */}
-					<ProjectCard
-						title="eKharid"
-						link="https://github.com/adityaspaudel/eKharid"
-						desc="An E-commerce Website"
-						items={[
-							"Full-stack e-commerce app built with Next.js and Express + MongoDB.",
-							"Secure authentication using JWT & bcrypt with role-based access.",
-							"Product management, image uploads, search & filters.",
-							"Cart, checkout, order tracking with scalable MERN architecture.",
-						]}
-						isDark={isDark}
-					/>
+					<motion.div
+						variants={{
+							hidden: { opacity: 0, y: 30, scale: 0.95 },
+							show: {
+								opacity: 1,
+								y: 0,
+								scale: 1,
+								transition: { duration: 0.5, ease: "easeOut" },
+							},
+						}}
+						whileHover={{ y: -8, scale: 1.02 }}
+						transition={{ type: "spring", stiffness: 300 }}
+					>
+						<ProjectCard
+							title="eKharid"
+							link="https://github.com/adityaspaudel/eKharid"
+							desc="An E-commerce Website"
+							items={[
+								"Full-stack e-commerce app built with Next.js and Express + MongoDB.",
+								"Secure authentication using JWT & bcrypt with role-based access.",
+								"Product management, image uploads, search & filters.",
+								"Cart, checkout, order tracking with scalable MERN architecture.",
+							]}
+							isDark={isDark}
+						/>
+					</motion.div>
 
 					{/* MiniProjects */}
-					<ProjectCard
-						title="MiniProjects"
-						link="https://github.com/adityaspaudel/miniProjects"
-						desc="50+ Small React Projects"
-						items={[
-							"Curated collection of React projects using modern practices.",
-							"Categorized into Games, Redux Apps, and Utility Apps.",
-							"Covers hooks, Redux Toolkit, routing, APIs, and local storage.",
-							"Ideal for hands-on practice and real-world React mastery.",
-						]}
-						isDark={isDark}
-					/>
-				</div>
-			</section>
+					<motion.div
+						variants={{
+							hidden: { opacity: 0, y: 30, scale: 0.95 },
+							show: {
+								opacity: 1,
+								y: 0,
+								scale: 1,
+								transition: { duration: 0.5, ease: "easeOut" },
+							},
+						}}
+						whileHover={{ y: -8, scale: 1.02 }}
+						transition={{ type: "spring", stiffness: 300 }}
+					>
+						<ProjectCard
+							title="MiniProjects"
+							link="https://github.com/adityaspaudel/miniProjects"
+							desc="50+ Small React Projects"
+							items={[
+								"Curated collection of React projects using modern practices.",
+								"Categorized into Games, Redux Apps, and Utility Apps.",
+								"Covers hooks, Redux Toolkit, routing, APIs, and local storage.",
+								"Ideal for hands-on practice and real-world React mastery.",
+							]}
+							isDark={isDark}
+						/>
+					</motion.div>
+				</motion.div>
+			</motion.section>
 
 			{/* Contact Section */}
 			<section
@@ -324,9 +383,7 @@ export default function WelcomeHome() {
 					onSubmit={handleSubmit}
 					className="rounded-2xl shadow-lg p-8 w-full h-96 max-w-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1 duration-300"
 				>
-					<h2
-						className={`text-2xl font-bold mb-6 text-center text-gray-800 ${bgMain}`}
-					>
+					<h2 className={`text-2xl font-bold mb-6 text-center  ${bgMain}`}>
 						Message Me
 					</h2>
 					<input
@@ -375,7 +432,7 @@ export default function WelcomeHome() {
 
 				{/* Previous Messages */}
 				<div
-					className={`bg-white rounded-2xl shadow-lg p-6 w-full max-w-md border-t-4 border-green-500 overflow-y-auto h-[500px] relative ${bgMain}`}
+					className={` rounded-2xl shadow-lg p-6 w-full max-w-md border-t-4 border-green-500 overflow-y-auto h-[500px] relative ${bgMain}`}
 				>
 					<h2 className="text-2xl font-bold mb-6 text-white text-center sticky top-0 bg-blue-500 p-2 z-10">
 						Previous Messages
@@ -410,7 +467,7 @@ function ProjectCard({ title, link, desc, items, isDark }) {
 	const cardBg = isDark ? "bg-gray-700 text-white" : "bg-gray-100 text-black";
 	return (
 		<div
-			className={`rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 ${cardBg}`}
+			className={`rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 h-80  ${cardBg}`}
 		>
 			<Link
 				href={link}
@@ -419,9 +476,12 @@ function ProjectCard({ title, link, desc, items, isDark }) {
 				{title}
 			</Link>
 			<p className="text-sm mb-4">{desc}</p>
-			<ul className="list-disc list-inside space-y-2 text-sm">
+			<ul className="space-y-2 text-sm">
 				{items.map((item, idx) => (
-					<li key={idx}>{item}</li>
+					<li key={idx} className="flex gap-2">
+						<span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-current opacity-70" />
+						<span>{item}</span>
+					</li>
 				))}
 			</ul>
 		</div>
