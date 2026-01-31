@@ -390,7 +390,7 @@ export default function WelcomeHome() {
 						name="fullName"
 						type="text"
 						placeholder="Full Name"
-						className="border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+						className={`border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard}`}
 						value={formData.fullName}
 						onChange={handleChange}
 						required
@@ -399,7 +399,7 @@ export default function WelcomeHome() {
 						name="email"
 						type="email"
 						placeholder="Email"
-						className="border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+						className={`border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard}`}
 						value={formData.email}
 						onChange={handleChange}
 						required
@@ -409,14 +409,14 @@ export default function WelcomeHome() {
 						type="number"
 						max="70"
 						placeholder="Age"
-						className="border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+						className={`border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard}`}
 						value={formData.age}
 						onChange={handleChange}
 					/>
 					<textarea
 						name="textMessage"
 						placeholder="Message"
-						className="border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+						className={`border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard}`}
 						rows="2"
 						value={formData.textMessage}
 						onChange={handleChange}
