@@ -245,9 +245,11 @@ export default function WelcomeHome() {
 						<h3 className="text-xl font-semibold mb-4">Frontend</h3>
 						<ul className="list-disc list-inside space-y-2 text-sm">
 							<li>React.js, Next.js (App Router)</li>
-							<li>Redux Toolkit, React-Redux</li>
-							<li>Tailwind CSS, HTML5, CSS3</li>
+							<li>Redux Toolkit, React-Redux, Redux-Persist</li>
+							<li>Modern Javascript (ES6+), Tailwind CSS </li>
+							<li>REST APIs, Axios</li>
 							<li>Formik & Yup</li>
+							<li>Shadcn/UI, Lucide-React, Chart.js</li>
 						</ul>
 					</motion.div>
 
@@ -270,9 +272,9 @@ export default function WelcomeHome() {
 						<ul className="list-disc list-inside space-y-2 text-sm">
 							<li>Node.js, Express.js</li>
 							<li>MongoDB, Mongoose</li>
-							<li>REST APIs, Axios</li>
-							<li>WebSockets, JWT, bcrypt</li>
-							<li>Multer, Cloudinary</li>
+							<li>Bcrypt, JSON Web Token (JWT)</li>
+							<li>Multer, Cloudinary </li>
+							<li>Socket-io, Nodemailer</li>
 						</ul>
 					</motion.div>
 
@@ -294,9 +296,10 @@ export default function WelcomeHome() {
 						<h3 className="text-xl font-semibold mb-4">Tools & Libraries</h3>
 						<ul className="list-disc list-inside space-y-2 text-sm">
 							<li>Git & GitHub, VSCode, Postman</li>
-							<li>React-Toastify, Framer Motion</li>
-							<li>shadcn/ui, Chart.js</li>
-							<li>dotenv, nodemon, cors</li>
+							<li>NPM, PNPM</li>
+							<li>Framer Motion, React-Toastify </li>
+							<li>Dotenv, Nodemon, CORS</li>
+							
 						</ul>
 					</motion.div>
 				</div>
