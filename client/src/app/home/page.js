@@ -18,12 +18,8 @@ export default function WelcomeHome() {
 
 	// ✅ Theme helpers for cleaner classnames
 	const isDark = theme === "dark";
-	const bgMain = isDark
-		? "bg-gray-900 text-gray-100"
-		: "bg-gray-100 text-gray-900";
-	const bgCard = isDark
-		? "bg-gray-800 text-gray-100"
-		: "bg-gray-100 text-gray-900";
+	const bgMain = isDark ? "bg-gray-900" : "bg-gray-100";
+	const bgCard = isDark ? "bg-gray-800" : "bg-gray-100";
 
 	const [formData, setFormData] = useState({
 		fullName: "",
@@ -94,7 +90,9 @@ export default function WelcomeHome() {
 	};
 
 	return (
-		<div className={`font-sans min-h-screen  ${bgMain}`}>
+		<div
+			className={`font-sans min-h-screen  ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
+		>
 			{/* Header */}
 			<header className={`sticky top-0 z-50 backdrop-blur shadow-sm ${bgCard}`}>
 				<div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
@@ -138,7 +136,7 @@ export default function WelcomeHome() {
 			</header>
 
 			{/* Hero Section */}
-			<section className="mt-6 flex justify-center px-4" id="about">
+			<section className="mt-6 flex justify-center px-12" id="about">
 				<div className="relative w-full max-w-6xl h-[420px] rounded-2xl overflow-hidden shadow-lg">
 					<Image
 						src="/photoCover.jpg"
@@ -218,7 +216,7 @@ export default function WelcomeHome() {
 
 			{/* Skills Section */}
 			<motion.section
-				className={`mt-6 px-20 ${bgMain}`}
+				className={`mt-6 px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 				initial={{ opacity: 0, y: 50 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
@@ -229,9 +227,9 @@ export default function WelcomeHome() {
 				<div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
 					{/* Frontend */}
 					<motion.div
-						className={`flex-1 min-w-[250px] max-w-[350px] rounded-xl shadow-md 
+						className={`flex-1 min-w-[250px]  rounded-xl shadow-md 
         hover:shadow-xl transition-all duration-300 p-6 
-        border-t-4 border-blue-500 ${bgCard}`}
+        border-t-4 border-blue-500 ${bgCard} `}
 						initial={{ opacity: 0, y: 40, scale: 0.95 }}
 						whileInView={{ opacity: 1, y: 0, scale: 1 }}
 						viewport={{ once: true }}
@@ -255,9 +253,9 @@ export default function WelcomeHome() {
 
 					{/* Backend */}
 					<motion.div
-						className={`flex-1 min-w-[250px] max-w-[350px] rounded-xl shadow-md 
-        hover:shadow-xl transition-all duration-300 p-6 
-        border-t-4 border-green-500 ${bgCard}`}
+						className={`flex-1 min-w-[250px]  rounded-xl shadow-md 
+        hover:shadow-xl transition-all duration-300 p-6
+        border-t-4 border-green-500 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 						initial={{ opacity: 0, y: 40, scale: 0.95 }}
 						whileInView={{ opacity: 1, y: 0, scale: 1 }}
 						viewport={{ once: true }}
@@ -280,9 +278,9 @@ export default function WelcomeHome() {
 
 					{/* Tools */}
 					<motion.div
-						className={`flex-1 min-w-[250px] max-w-[350px] rounded-xl shadow-md 
+						className={`flex-1 min-w-[250px] rounded-xl shadow-md 
         hover:shadow-xl transition-all duration-300 p-6 
-        border-t-4 border-purple-500 ${bgCard}`}
+        border-t-4 border-purple-500 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 						initial={{ opacity: 0, y: 40, scale: 0.95 }}
 						whileInView={{ opacity: 1, y: 0, scale: 1 }}
 						viewport={{ once: true }}
@@ -306,7 +304,7 @@ export default function WelcomeHome() {
 
 			{/* Projects Section */}
 			<motion.section
-				className={`mt-6 px-20 ${bgMain}`}
+				className={`mt-6 px-12 ${bgMain}`}
 				initial={{ opacity: 0, y: 40 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
@@ -422,21 +420,23 @@ export default function WelcomeHome() {
 
 			{/* Contact Section */}
 			<section
-				className={`flex flex-col md:flex-row justify-center gap-10 py-12 px-6 ${bgMain}`}
+				className={`flex flex-col md:flex-row justify-center gap-10 py-12 px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 			>
 				{/* Contact Form */}
 				<form
 					onSubmit={handleSubmit}
-					className="rounded-2xl shadow-lg p-8 w-full min-h-96 max-w-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1 duration-300"
+					className={`rounded-2xl shadow-lg p-8 w-full min-h-96 max-w-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1 duration-300 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 				>
-					<h2 className={`text-2xl font-bold mb-6 text-center  ${bgMain}`}>
+					<h2
+						className={`text-2xl font-bold mb-6 text-center  ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
+					>
 						Message Me
 					</h2>
 					<input
 						name="fullName"
 						type="text"
 						placeholder="Full Name"
-						className={`border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard}`}
+						className={`border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 						value={formData.fullName}
 						onChange={handleChange}
 						required
@@ -445,7 +445,7 @@ export default function WelcomeHome() {
 						name="email"
 						type="email"
 						placeholder="Email"
-						className={`border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard}`}
+						className={`border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 						value={formData.email}
 						onChange={handleChange}
 						required
@@ -455,14 +455,14 @@ export default function WelcomeHome() {
 						type="number"
 						max="70"
 						placeholder="Age"
-						className={`border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard}`}
+						className={`border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 						value={formData.age}
 						onChange={handleChange}
 					/>
 					<textarea
 						name="textMessage"
 						placeholder="Message"
-						className={`border border-gray-300 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard}`}
+						className={`border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard}`}
 						rows="2"
 						value={formData.textMessage}
 						onChange={handleChange}
@@ -470,7 +470,7 @@ export default function WelcomeHome() {
 					/>
 					<button
 						type="submit"
-						className="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+						className={`w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors `}
 					>
 						Submit
 					</button>
@@ -478,9 +478,11 @@ export default function WelcomeHome() {
 
 				{/* Previous Messages */}
 				<div
-					className={` rounded-2xl shadow-lg p-6 w-full max-w-md border-t-4 border-green-500 overflow-y-auto h-[500px] relative ${bgMain}`}
+					className={` rounded-2xl shadow-lg p-6 w-full max-w-md border-t-4 border-green-500 overflow-y-auto h-[500px] relative ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"} hover:scale-[1.02] transition 1s`}
 				>
-					<h2 className="text-2xl font-bold mb-6 text-white text-center sticky top-0 bg-blue-500 p-2 z-10">
+					<h2
+						className={`text-2xl font-bold mb-6  text-center sticky top-0 bg-blue-500 p-2 z-10 ${isDark ? "text-gray-100" : "text-gray-100"} `}
+					>
 						Previous Messages
 					</h2>
 					{data.length > 0 ? (
@@ -488,12 +490,19 @@ export default function WelcomeHome() {
 							{data.map((item) => (
 								<li
 									key={item._id}
-									className="border border-gray-200 p-3 rounded-lg hover:bg-green-50 transition-colors"
+									className={`border border-gray-200 p-3 rounded-lg transition-colors ${isDark ? "text-gray-100 hover:bg-gray-700" : "text-gray-800 hover:bg-gray-200"}`}
 								>
-									<span className="font-semibold text-green-700">
+									<span
+										className={`font-semibold  ${isDark ? "text-green-400" : "text-green-600"}`}
+									>
 										{item.fullName}
 									</span>
-									: <span className="text-gray-700">{item.textMessage}</span>
+									:{" "}
+									<span
+										className={`${isDark ? "text-gray-100" : "text-gray-800"}`}
+									>
+										{item.textMessage}
+									</span>
 								</li>
 							))}
 						</ul>
