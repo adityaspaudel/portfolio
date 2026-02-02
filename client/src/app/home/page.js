@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
@@ -57,19 +57,19 @@ export default function WelcomeHome() {
 		}
 	};
 
-	useEffect(() => {
-		const fetchMessages = async () => {
-			try {
-				const res = await fetch(`${NEXT_PUBLIC_API_URL}/message/getMessage`);
-				const jsonData = await res.json();
-				setData(jsonData);
-			} catch (err) {
-				console.error("Error fetching data:", err);
-			}
-		};
+	const fetchMessages = useCallback(async () => {
+		try {
+			const res = await fetch(`${NEXT_PUBLIC_API_URL}/message/getMessage`);
+			const jsonData = await res.json();
+			setData(jsonData);
+		} catch (err) {
+			console.error("Error fetching data:", err);
+		}
+	}, []);
 
+	useEffect(() => {
 		fetchMessages(); // call it immediately
-	}, [NEXT_PUBLIC_API_URL]);
+	}, [fetchMessages]);
 
 	// Form handlers
 	const handleChange = (e) => {
