@@ -404,7 +404,7 @@ export default function WelcomeHome() {
 							title="MiniProjects"
 							githubLink="https://github.com/adityaspaudel/miniProjects"
 							deployLink="https://miniprojectsfe.vercel.app/"
-							imagess={`/miniprojects2.png`}
+							imagess={`/miniprojects.png`}
 							desc="50+ Small React Projects"
 							items={[
 								"Curated collection of React projects using modern practices.",

@@ -30,7 +30,7 @@ This project focuses on **clean architecture, scalability, and smooth UI/UX**, f
 - **Next.js 16**
 - **React 19**
 - **Tailwind CSS**
-- **Material UI (MUI)** + Emotion
+- **Material UI (MUI) + Emotion** 
 - **Radix UI**
 - **Redux Toolkit**
 - **Redux Persist & Logger**
@@ -45,7 +45,7 @@ This project focuses on **clean architecture, scalability, and smooth UI/UX**, f
 - **MongoDB**
 - **Mongoose**
 - **CORS**
-- **dotenv**
+- **Dotenv**
 - **Nodemon**
 
 ---
@@ -54,7 +54,7 @@ This project focuses on **clean architecture, scalability, and smooth UI/UX**, f
 
 ### Frontend
 ```bash
-nextjs/
+client/
  ├── app/
  ├── components/
  ├── lib/
@@ -81,17 +81,17 @@ server/
 ## Start Project
 ```bash
 
-cd nextjs
-npm install
-npm run dev
+cd client
+pnpm install
+pnpm dev
 
 ````
 
 ```bash
 
 cd server
-npm install
-npm run dev
+pnpm install
+npm dev
 
 ```
 
@@ -101,10 +101,10 @@ npm run dev
 ![Screenshot1](./assets/image1.png)
 
 ### Screenshot2
-![Screenshot2](./assets/image22.png)
+![Screenshot2](./assets/image2.png)
 
 ### Screenshot3
-![Screenshot3](./assets/image33.png)
+![Screenshot3](./assets/image3.png)
 
 ### Screenshot4
 ![Screenshot4](./assets/image4.png)
