@@ -55,11 +55,12 @@ This project focuses on **clean architecture, scalability, and smooth UI/UX**, f
 ### Frontend
 ```bash
 client/
- ├── app/
- ├── components/
- ├── lib/
+ ├── src/
+ │    ├─── app/
+ │    ├─── components/
+ │    └─── lib/
+ │          └── redux/
  ├── public/
- ├── styles/
  ├── tailwind.config.js
  └── package.json
 
