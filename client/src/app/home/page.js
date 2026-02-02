@@ -423,12 +423,12 @@ export default function WelcomeHome() {
 
 			{/* Contact Section */}
 			<section
-				className={`flex flex-col md:flex-row justify-center gap-8 py-12 px-6 ${bgMain}`}
+				className={`flex flex-col md:flex-row justify-center gap-10 py-12 px-6 ${bgMain}`}
 			>
 				{/* Contact Form */}
 				<form
 					onSubmit={handleSubmit}
-					className="rounded-2xl shadow-lg p-8 w-full h-96 max-w-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1 duration-300"
+					className="rounded-2xl shadow-lg p-8 w-full min-h-96 max-w-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1 duration-300"
 				>
 					<h2 className={`text-2xl font-bold mb-6 text-center  ${bgMain}`}>
 						Message Me
