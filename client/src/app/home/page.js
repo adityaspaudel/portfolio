@@ -154,7 +154,7 @@ export default function WelcomeHome() {
 						className="relative z-10 h-full flex flex-col justify-center items-end text-right px-6 md:px-14"
 						id="home"
 					>
-						<h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white bg-blue-600/20 px-6 py-3 rounded-lg backdrop-blur-md shadow-md">
+						<h1 className="text-xl w-48 md:w-[400px] lg:w-[600px] md:text-2xl text-right lg:text-3xl font-bold text-white bg-blue-600/20 px-6 py-3 rounded-lg backdrop-blur-md shadow-md">
 							{displayedText}
 						</h1>
 						<div
@@ -299,7 +299,6 @@ export default function WelcomeHome() {
 							<li>NPM, PNPM</li>
 							<li>Framer Motion, React-Toastify </li>
 							<li>Dotenv, Nodemon, CORS</li>
-							
 						</ul>
 					</motion.div>
 				</div>
@@ -406,7 +405,7 @@ export default function WelcomeHome() {
 						<ProjectCard
 							title="MiniProjects"
 							githubLink="https://github.com/adityaspaudel/miniProjects"
-							deployLink="https://mini-projects1-git-editing-aaditya-paudels-projects.vercel.app/"
+							deployLink="https://miniprojectsfe.vercel.app/"
 							imagess={`/miniprojects.png`}
 							desc="50+ Small React Projects"
 							items={[
