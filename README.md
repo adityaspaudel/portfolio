@@ -101,10 +101,10 @@ npm run dev
 ![Screenshot1](./assets/image1.png)
 
 ### Screenshot2
-![Screenshot2](./assets/image2.png)
+![Screenshot2](./assets/image22.png)
 
 ### Screenshot3
-![Screenshot3](./assets/image3.png)
+![Screenshot3](./assets/image33.png)
 
 ### Screenshot4
 ![Screenshot4](./assets/image4.png)
