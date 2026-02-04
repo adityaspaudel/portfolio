@@ -34,6 +34,7 @@ export default function WelcomeHome() {
 	const [index, setIndex] = useState(0);
 	const [visible, setVisible] = useState(false);
 	const [isClicked, setIsClicked] = useState(false);
+	const [messageMe, setMessageMe] = useState(false);
 	useEffect(() => setVisible(true), []);
 
 	useEffect(() => {
@@ -66,7 +67,7 @@ export default function WelcomeHome() {
 			console.error("Error fetching data:", err);
 		}
 	}, []);
-
+	const inputClasses = `border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`;
 	useEffect(() => {
 		fetchMessages(); // call it immediately
 	}, [fetchMessages]);
@@ -91,7 +92,7 @@ export default function WelcomeHome() {
 
 	return (
 		<div
-			className={`font-sans min-h-screen scroll-smooth ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
+			className={`font-sans min-h-screen scroll-smooth  ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 		>
 			{/* Header */}
 			<header className={`sticky top-0 z-50 backdrop-blur shadow-sm ${bgCard}`}>
@@ -218,7 +219,7 @@ export default function WelcomeHome() {
 					<FaTwitter className="text-blue-500 text-xl" />
 				</a>
 				<a
-					href="https://www.instagram.com/adities.paudel/"
+					href="https://www.instagram.com/adityasxpaudel/"
 					target="_blank"
 					rel="noopener noreferrer"
 					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-pink-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 ${isClicked ? "scale-105 ring-2 ring-blue-400" : ""} focus:ring-pink-500 bg-white`}
@@ -435,96 +436,138 @@ export default function WelcomeHome() {
 
 			{/* Contact Section */}
 			<section
-				className={`flex flex-col md:flex-row justify-center gap-10 py-12 px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
+				className={`flex flex-col justify-center items-center gap-10 py-12 px-6 md:px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 			>
-				{/* Contact Form */}
-				<form
-					onSubmit={handleSubmit}
-					className={`rounded-2xl shadow-lg p-8 w-full min-h-96 max-w-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1 duration-300 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
-				>
-					<h2
-						className={`text-2xl font-bold mb-6 text-center  ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
+				{!messageMe && (
+					<motion.button
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.95 }}
+						className="bg-yellow-500 hover:bg-yellow-600 text-white font-medium rounded-md px-6 py-2 shadow-md transition-colors"
+						onClick={() => setMessageMe(true)}
 					>
 						Message Me
-					</h2>
-					<input
-						name="fullName"
-						type="text"
-						placeholder="Full Name"
-						className={`border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
-						value={formData.fullName}
-						onChange={handleChange}
-						required
-					/>
-					<input
-						name="email"
-						type="email"
-						placeholder="Email"
-						className={`border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
-						value={formData.email}
-						onChange={handleChange}
-						required
-					/>
-					<input
-						name="age"
-						type="number"
-						max="70"
-						placeholder="Age"
-						className={`border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
-						value={formData.age}
-						onChange={handleChange}
-					/>
-					<textarea
-						name="textMessage"
-						placeholder="Message"
-						className={`border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 ${bgCard}`}
-						rows="2"
-						value={formData.textMessage}
-						onChange={handleChange}
-						required
-					/>
-					<button
-						type="submit"
-						className={`w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors `}
-					>
-						Submit
-					</button>
-				</form>
+					</motion.button>
+				)}
 
-				{/* Previous Messages */}
-				<div
-					className={` rounded-2xl shadow-lg p-6 w-full max-w-md border-t-4 border-green-500 overflow-y-auto h-[500px] relative ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"} hover:scale-[1.02] transition 1s`}
+				<motion.div
+					initial={false}
+					animate={
+						messageMe
+							? { opacity: 1, height: "auto", scale: 1, y: 0 }
+							: { opacity: 0, height: 0, scale: 0.95, y: 20 }
+					}
+					transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }} // Custom spring-like easing
+					className={`relative w-full max-w-5xl overflow-hidden rounded-xl shadow-2xl ${bgCard}`}
 				>
-					<h2
-						className={`text-2xl font-bold mb-6  text-center sticky top-0 bg-blue-500 p-2 z-10 ${isDark ? "text-gray-100" : "text-gray-100"} `}
+					<motion.button
+						whileHover={{ rotate: 90, scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+						className="absolute top-4 right-4 bg-gray-500 hover:bg-red-500 text-white h-8 w-8 font-bold rounded-full flex items-center justify-center z-50 transition-colors shadow-lg"
+						onClick={() => setMessageMe(false)}
 					>
-						Previous Messages
-					</h2>
-					{data.length > 0 ? (
-						<ul className="space-y-3">
-							{data.map((item) => (
-								<li
-									key={item._id}
-									className={`border border-gray-200 p-3 rounded-lg transition-colors ${isDark ? "text-gray-100 hover:bg-gray-700" : "text-gray-800 hover:bg-gray-200"}`}
-								>
-									<span
-										className={`font-semibold  ${isDark ? "text-green-400" : "text-green-600"}`}
-									>
-										{item.fullName}
-									</span>
-									:{" "}
-									<span
-										className={`${isDark ? "text-gray-100" : "text-gray-800"}`}
-									>
-										{item.textMessage}
-									</span>
-								</li>
+						✕
+					</motion.button>
+
+					<div className="flex lg:flex-row gap-8 p-8 items-start  justify-between">
+						{/* Contact Form */}
+						<motion.form
+							initial={{ x: -20, opacity: 0 }}
+							animate={messageMe ? { x: 0, opacity: 1 } : {}}
+							transition={{ delay: 0.2 }}
+							onSubmit={handleSubmit}
+							className={`rounded-2xl  p-8 shadow-lg w-full max-w-md   ${bgCard} border`}
+						>
+							<h2 className="mb-6  text-xl font-bold p-4 text-center bg-blue-500 text-white ">
+								Send a Message
+							</h2>
+							{["fullName", "email", "age"].map((field) => (
+								<motion.input
+									key={field}
+									whileFocus={{ y: -2 }}
+									name={field}
+									type={
+										field === "email"
+											? "email"
+											: field === "age"
+												? "number"
+												: "text"
+									}
+									placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+									className={inputClasses}
+									value={formData[field]}
+									onChange={handleChange}
+									required={field !== "age"}
+								/>
 							))}
-						</ul>
-					) : (
-						<p className="text-gray-500 text-center">No messages yet.</p>
-					)}
-				</div>
+							<motion.textarea
+								whileFocus={{ y: -2 }}
+								name="textMessage"
+								placeholder="Your Message"
+								className={`${inputClasses} resize-none`}
+								rows="3"
+								value={formData.textMessage}
+								onChange={handleChange}
+								required
+							/>
+							<motion.button
+								whileHover={{ scale: 1.02 }}
+								whileTap={{ scale: 0.98 }}
+								type="submit"
+								className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 shadow-md transition-colors"
+							>
+								Submit
+							</motion.button>
+						</motion.form>
+						
+						{/* Previous Messages */}
+						<motion.div
+							initial={{ x: 20, opacity: 0 }}
+							animate={messageMe ? { x: 0, opacity: 1 } : {}}
+							transition={{ delay: 0.3 }}
+							className={`rounded-2xl shadow-lg w-full max-w-md   flex flex-col p-8 h-[500px] ${bgCard} border`}
+						>
+							<h2 className="text-xl font-bold p-4 text-center bg-blue-500 text-white ">
+								Previous Messages
+							</h2>
+							<div className="overflow-y-auto  flex-grow">
+								{data.length > 0 ? (
+									<motion.ul
+										initial="hidden"
+										animate="show"
+										variants={{
+											show: { transition: { staggerChildren: 0.1 } },
+										}}
+										className="space-y-3"
+									>
+										{data.map((item) => (
+											<motion.li
+												variants={{
+													hidden: { opacity: 0, y: 10 },
+													show: { opacity: 1, y: 0 },
+												}}
+												key={item._id}
+												className={`border border-gray-200 p-3 rounded-lg transition-colors ${isDark ? "hover:bg-gray-700" : "hover:bg-gray-50"}`}
+											>
+												<span
+													className={`font-semibold ${isDark ? "text-green-400" : "text-green-600"}`}
+												>
+													{item.fullName}
+												</span>
+												<p className="mt-1 text-sm opacity-90">
+													{item.textMessage}
+												</p>
+											</motion.li>
+										))}
+									</motion.ul>
+								) : (
+									<p className="text-gray-500 text-center mt-10">
+										No messages yet.
+									</p>
+								)}
+							</div>
+						</motion.div>
+					</div>
+				</motion.div>
 			</section>
 
 			<ToastContainer />
@@ -607,39 +650,39 @@ function ProjectCard({
 	);
 }
 
-function AnimatedBio({ title, textExtra, typingSpeed = 30 }) {
-	const [visible, setVisible] = useState(false);
-	const [typedText, setTypedText] = useState("");
+// function AnimatedBio({ title, textExtra, typingSpeed = 30 }) {
+// 	const [visible, setVisible] = useState(false);
+// 	const [typedText, setTypedText] = useState("");
 
-	useEffect(() => {
-		setVisible(true);
-		let index = 0;
-		const interval = setInterval(() => {
-			setTypedText((prev) => prev + textExtra[index]);
-			index++;
-			if (index === textExtra.length) clearInterval(interval);
-		}, typingSpeed);
-		return () => clearInterval(interval);
-	}, [textExtra, typingSpeed]);
+// 	useEffect(() => {
+// 		setVisible(true);
+// 		let index = 0;
+// 		const interval = setInterval(() => {
+// 			setTypedText((prev) => prev + textExtra[index]);
+// 			index++;
+// 			if (index === textExtra.length) clearInterval(interval);
+// 		}, typingSpeed);
+// 		return () => clearInterval(interval);
+// 	}, [textExtra, typingSpeed]);
 
-	const lines = typedText.split("\n");
+// 	const lines = typedText.split("\n");
 
-	return (
-		<div className="mt-6 max-w-2xl text-gray-200 text-sm md:text-base leading-relaxed">
-			<h1
-				className={`text-2xl underline mb-2 transition-all duration-700 ease-out transform ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95"}`}
-			>
-				{title}
-			</h1>
-			{lines.map((line, index) => (
-				<p
-					key={index}
-					className={`transition-all duration-500 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
-					style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
-				>
-					{line}
-				</p>
-			))}
-		</div>
-	);
-}
+// 	return (
+// 		<div className="mt-6 max-w-2xl text-gray-200 text-sm md:text-base leading-relaxed">
+// 			<h1
+// 				className={`text-2xl underline mb-2 transition-all duration-700 ease-out transform ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95"}`}
+// 			>
+// 				{title}
+// 			</h1>
+// 			{lines.map((line, index) => (
+// 				<p
+// 					key={index}
+// 					className={`transition-all duration-500 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+// 					style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
+// 				>
+// 					{line}
+// 				</p>
+// 			))}
+// 		</div>
+// 	);
+// }
