@@ -33,7 +33,7 @@ export default function WelcomeHome() {
 	const [displayedText, setDisplayedText] = useState("");
 	const [index, setIndex] = useState(0);
 	const [visible, setVisible] = useState(false);
-
+	const [isClicked, setIsClicked] = useState(false);
 	useEffect(() => setVisible(true), []);
 
 	useEffect(() => {
@@ -91,7 +91,7 @@ export default function WelcomeHome() {
 
 	return (
 		<div
-			className={`font-sans min-h-screen  ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
+			className={`font-sans min-h-screen scroll-smooth ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 		>
 			{/* Header */}
 			<header className={`sticky top-0 z-50 backdrop-blur shadow-sm ${bgCard}`}>
@@ -119,16 +119,30 @@ export default function WelcomeHome() {
 						>
 							{isDark ? "☀ Light Mode" : "🌙 Dark Mode"}
 						</button>
-						<a href="#home" className="hover:text-blue-500">
+						{/* <a href="#home" className="hover:text-blue-500">
 							Home
-						</a>
+						</a> */}
 						<a href="#about" className="hover:text-blue-500">
 							About
+						</a>
+						<a href="#skills" className="hover:text-blue-500">
+							My Skills{" "}
 						</a>
 						<a href="#projects" className="hover:text-blue-500">
 							Projects
 						</a>
-						<a href="#contacts" className="hover:text-blue-500">
+
+						<a
+							href="#contacts"
+							onClick={(e) => {
+								e.preventDefault();
+								setIsClicked(true);
+								setTimeout(() => {
+									setIsClicked(false);
+								}, 3000);
+							}}
+							className="hover:text-blue-500"
+						>
 							Contact
 						</a>
 					</nav>
@@ -136,7 +150,10 @@ export default function WelcomeHome() {
 			</header>
 
 			{/* Hero Section */}
-			<section className="mt-6 flex justify-center px-12" id="about">
+			<section
+				className="mt-6 flex justify-center px-12 scroll-mt-28 "
+				id="about"
+			>
 				<div className="relative w-full max-w-6xl h-[420px] rounded-2xl overflow-hidden shadow-lg">
 					<Image
 						src="/photoCover.jpg"
@@ -148,10 +165,7 @@ export default function WelcomeHome() {
 					/>
 					<div className="absolute inset-0 bg-gradient-to-r from-black/20 to-black/30" />
 
-					<div
-						className="relative z-10 h-full flex flex-col justify-center items-end text-right px-6 md:px-14"
-						id="home"
-					>
+					<div className="relative z-10 h-full flex flex-col justify-center  items-end text-right px-6 md:px-14">
 						<h1 className="text-xl w-48 md:w-[400px] lg:w-[600px] md:text-2xl text-right lg:text-3xl font-bold text-white bg-blue-600/20 px-6 py-3 rounded-lg backdrop-blur-md shadow-md">
 							{displayedText}
 						</h1>
@@ -173,23 +187,23 @@ export default function WelcomeHome() {
 
 			{/* Social Icons */}
 			<div
-				className="fixed top-1/2 left-4 -translate-y-1/2 flex flex-col gap-4 z-50"
+				className={`fixed top-1/2 left-4 -translate-y-1/2 flex flex-col gap-4  scroll-mt-40  transition z-50 ${isClicked ? "scale-105 animate-pulseFast  p-2" : ""} `}
 				id="contacts"
 			>
 				<a
 					href="https://github.com/adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
-					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-gray-100 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white`}
+					className={`flex items-center justify-center  rounded-full  shadow-md hover:bg-gray-100 hover:scale-110 w-12 h-12 transition-transform duration-300 focus:outline-none focus:ring-2 ${isClicked ? "scale-105 ring-2 ring-blue-400" : ""} focus:ring-blue-500 bg-white`}
 					aria-label="GitHub"
 				>
-					<FaGithub className="text-gray-800 text-xl" />
+					<FaGithub className={`text-gray-800 text-xl `} />
 				</a>
 				<a
 					href="https://www.linkedin.com/in/adityaspaudel/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-blue-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white`}
+					className={`flex items-center justify-center rounded-full  shadow-md hover:bg-blue-50 hover:scale-110 w-12 h-12 transition-transform duration-300 ${isClicked ? "scale-105 ring-2 ring-blue-400" : ""} focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white`}
 					aria-label="LinkedIn"
 				>
 					<FaLinkedin className="text-blue-700 text-xl" />
@@ -198,7 +212,7 @@ export default function WelcomeHome() {
 					href="https://x.com/adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
-					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-blue-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white`}
+					className={`flex items-center justify-center  rounded-full  shadow-md hover:bg-blue-50 hover:scale-110 w-12 h-12 transition  duration-300 ${isClicked ? "scale-105 ring-2 ring-blue-400" : ""} focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white`}
 					aria-label="X / Twitter"
 				>
 					<FaTwitter className="text-blue-500 text-xl" />
@@ -207,7 +221,7 @@ export default function WelcomeHome() {
 					href="https://www.instagram.com/adities.paudel/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-pink-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white`}
+					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-pink-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 ${isClicked ? "scale-105 ring-2 ring-blue-400" : ""} focus:ring-pink-500 bg-white`}
 					aria-label="Instagram"
 				>
 					<FaInstagram className="text-pink-500 text-xl" />
@@ -216,11 +230,12 @@ export default function WelcomeHome() {
 
 			{/* Skills Section */}
 			<motion.section
-				className={`mt-6 px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
+				className={`scroll-mt-28 mt-6 px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 				initial={{ opacity: 0, y: 50 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
 				transition={{ duration: 0.7, ease: "easeOut" }}
+				id="skills"
 			>
 				<h2 className="text-3xl font-bold text-center mb-12">My Skills</h2>
 
@@ -304,16 +319,16 @@ export default function WelcomeHome() {
 
 			{/* Projects Section */}
 			<motion.section
-				className={`mt-6 px-12 ${bgMain}`}
+				className={`scroll-mt-28 mt-6 px-12  ${bgMain}`}
 				initial={{ opacity: 0, y: 40 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
 				transition={{ duration: 0.6, ease: "easeOut" }}
+				id="projects"
 			>
-				<h1 className="text-3xl font-bold text-center mb-8">My Projects</h1>
+				<h1 className="text-3xl  font-bold text-center mb-8">My Projects</h1>
 
 				<motion.div
-					id="projects"
 					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
 					initial="hidden"
 					whileInView="show"

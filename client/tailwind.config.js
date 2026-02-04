@@ -34,6 +34,8 @@ module.exports = {
 			},
 			animation: {
 				blink: "blink 1s ease-in-out infinite",
+				pulseSlow: "pulse 3s ease-in-out infinite",
+				pulseFast: "pulse 1s ease-in-out infinite",
 			},
 			keyframes: {
 				blink: {
