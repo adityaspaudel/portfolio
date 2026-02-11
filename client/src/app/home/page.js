@@ -468,7 +468,7 @@ export default function WelcomeHome() {
 						✕
 					</motion.button>
 
-					<div className="flex-col lg:flex-row gap-8 p-8 items-start  justify-between">
+					<div className="flex flex-col md:flex md:flex-row gap-8 p-8 items-center  justify-between">
 						{/* Contact Form */}
 						<motion.form
 							initial={{ x: -20, opacity: 0 }}
@@ -518,7 +518,7 @@ export default function WelcomeHome() {
 								Submit
 							</motion.button>
 						</motion.form>
-						
+
 						{/* Previous Messages */}
 						<motion.div
 							initial={{ x: 20, opacity: 0 }}
