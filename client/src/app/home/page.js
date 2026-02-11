@@ -468,7 +468,7 @@ export default function WelcomeHome() {
 						✕
 					</motion.button>
 
-					<div className="flex lg:flex-row gap-8 p-8 items-start  justify-between">
+					<div className="flex-col lg:flex-row gap-8 p-8 items-start  justify-between">
 						{/* Contact Form */}
 						<motion.form
 							initial={{ x: -20, opacity: 0 }}
