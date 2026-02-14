@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "@/lib/redux/slices/themeSlice";
 import { motion } from "framer-motion";
+import FullstackJourneyTimeline from "@/components/learningJouney/FulllstackJourney";
 export default function WelcomeHome() {
 	const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -149,7 +150,6 @@ export default function WelcomeHome() {
 					</nav>
 				</div>
 			</header>
-
 			{/* Hero Section */}
 			<section
 				className="mt-6 flex justify-center px-12 scroll-mt-28 "
@@ -185,7 +185,6 @@ export default function WelcomeHome() {
 					</div>
 				</div>
 			</section>
-
 			{/* Social Icons */}
 			<div
 				className={`fixed top-1/2 left-4 -translate-y-1/2 flex flex-col gap-4  scroll-mt-40  transition z-50 ${isClicked ? "scale-105 animate-pulseFast  p-2" : ""} `}
@@ -228,7 +227,6 @@ export default function WelcomeHome() {
 					<FaInstagram className="text-pink-500 text-xl" />
 				</a>
 			</div>
-
 			{/* Skills Section */}
 			<motion.section
 				className={`scroll-mt-28 mt-6 px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
@@ -317,7 +315,6 @@ export default function WelcomeHome() {
 					</motion.div>
 				</div>
 			</motion.section>
-
 			{/* Projects Section */}
 			<motion.section
 				className={`scroll-mt-28 mt-6 px-12  ${bgMain}`}
@@ -433,6 +430,13 @@ export default function WelcomeHome() {
 					</motion.div>
 				</motion.div>
 			</motion.section>
+
+			{/* FullStackJourney */}
+			<FullstackJourneyTimeline
+				isDark={isDark}
+				bgCard={bgCard}
+				bgMain={bgMain}
+			/>
 
 			{/* Contact Section */}
 			<section
@@ -569,7 +573,6 @@ export default function WelcomeHome() {
 					</div>
 				</motion.div>
 			</section>
-
 			<ToastContainer />
 		</div>
 	);
