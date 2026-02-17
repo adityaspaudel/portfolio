@@ -155,7 +155,7 @@ export default function WelcomeHome() {
 				className="mt-6 flex justify-center px-12 scroll-mt-28 "
 				id="about"
 			>
-				<div className="relative w-full max-w-6xl h-[420px] rounded-2xl overflow-hidden shadow-lg">
+				<div className="relative w-full max-w-7xl h-[420px] rounded-2xl overflow-hidden shadow-lg">
 					<Image
 						src="/photoCover.jpg"
 						alt="Cover"
@@ -167,7 +167,7 @@ export default function WelcomeHome() {
 					<div className="absolute inset-0 bg-gradient-to-r from-black/20 to-black/30" />
 
 					<div className="relative z-10 h-full flex flex-col justify-center  items-end text-right px-6 md:px-14">
-						<h1 className="text-xl w-48 md:w-[400px] lg:w-[600px] md:text-2xl text-right lg:text-3xl font-bold text-white bg-blue-600/20 px-6 py-3 rounded-lg backdrop-blur-md shadow-md">
+						<h1 className="text-xl w-48 md:w-[400px] lg:w-[600px] md:text-2xl text-right lg:text-3xl font-bold text-white px-6 py-3 rounded-lg backdrop-blur-md shadow-md">
 							{displayedText}
 						</h1>
 						<div
@@ -229,16 +229,18 @@ export default function WelcomeHome() {
 			</div>
 			{/* Skills Section */}
 			<motion.section
-				className={`scroll-mt-28 mt-6 px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
+				className={`scroll-mt-28 flex flex-col justify-center items-center mt-6 px-12 max-w-7xl ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 				initial={{ opacity: 0, y: 50 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
 				transition={{ duration: 0.7, ease: "easeOut" }}
 				id="skills"
 			>
-				<h2 className="text-3xl font-bold text-center mb-12">My Skills</h2>
+				<h2 className="text-3xl max-w-7xl font-bold text-center mb-12">
+					My Skills
+				</h2>
 
-				<div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
+				<div className="flex flex-wrap justify-center content-center gap-8 max-w-7xl mx-auto">
 					{/* Frontend */}
 					<motion.div
 						className={`flex-1 min-w-[250px]  rounded-xl shadow-md 
