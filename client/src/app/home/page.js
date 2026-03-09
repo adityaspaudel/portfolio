@@ -243,7 +243,7 @@ export default function WelcomeHome() {
 				<div className="flex flex-wrap justify-center content-center gap-8 max-w-7xl mx-auto">
 					{/* Frontend */}
 					<motion.div
-						className={`flex-1 min-w-[250px]  rounded-xl shadow-md 
+						className={`flex-1 min-w-[250px] lg:min-w-[350px]  rounded-xl shadow-md 
         hover:shadow-xl transition-all duration-300 p-6 
         border-t-4 border-blue-500 ${bgCard} `}
 						initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -269,7 +269,7 @@ export default function WelcomeHome() {
 
 					{/* Backend */}
 					<motion.div
-						className={`flex-1 min-w-[250px]  rounded-xl shadow-md 
+						className={`flex-1 min-w-[250px]  lg:min-w-[350px] rounded-xl shadow-md 
         hover:shadow-xl transition-all duration-300 p-6
         border-t-4 border-green-500 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 						initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -294,7 +294,7 @@ export default function WelcomeHome() {
 
 					{/* Tools */}
 					<motion.div
-						className={`flex-1 min-w-[250px] rounded-xl shadow-md 
+						className={`flex-1 min-w-[250px] lg:min-w-[350px] rounded-xl shadow-md 
         hover:shadow-xl transition-all duration-300 p-6 
         border-t-4 border-purple-500 ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 						initial={{ opacity: 0, y: 40, scale: 0.95 }}
