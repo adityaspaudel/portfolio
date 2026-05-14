@@ -93,15 +93,13 @@ export default function WelcomeHome() {
 
 	return (
 		<div
-			className={`font-sans min-h-screen scroll-smooth  ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
-		>
+			className={`font-sans min-h-screen scroll-smooth  ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}>
 			{/* Header */}
 			<header className={`sticky top-0 z-50 backdrop-blur shadow-sm ${bgCard}`}>
 				<div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 					<Link
 						href="https://github.com/adityaspaudel"
-						className="flex items-center gap-3"
-					>
+						className="flex items-center gap-3">
 						<Image
 							src="/avatar-aaditya.jpg"
 							height={56}
@@ -112,18 +110,14 @@ export default function WelcomeHome() {
 						<h1 className="font-bold text-xl">{`Aaditya Paudel`}</h1>
 					</Link>
 
-					<nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+					<nav className=" md:flex items-center gap-6 text-sm font-medium">
 						<button
 							onClick={() => dispatch(toggleTheme())}
 							className={`px-4 py-2 rounded transition ${
 								isDark ? "bg-yellow-400 text-black" : "bg-gray-900 text-white"
-							}`}
-						>
+							}`}>
 							{isDark ? "☀ Light Mode" : "🌙 Dark Mode"}
 						</button>
-						{/* <a href="#home" className="hover:text-blue-500">
-							Home
-						</a> */}
 						<a href="#about" className="hover:text-blue-500">
 							About
 						</a>
@@ -143,8 +137,7 @@ export default function WelcomeHome() {
 									setIsClicked(false);
 								}, 3000);
 							}}
-							className="hover:text-blue-500"
-						>
+							className="hover:text-blue-500">
 							Contact
 						</a>
 					</nav>
@@ -153,8 +146,7 @@ export default function WelcomeHome() {
 			{/* Hero Section */}
 			<section
 				className="mt-6 flex justify-center px-12 scroll-mt-28 "
-				id="about"
-			>
+				id="about">
 				<div className="relative w-full max-w-7xl h-[420px] rounded-2xl overflow-hidden shadow-lg">
 					<Image
 						src="/photoCover.jpg"
@@ -171,8 +163,7 @@ export default function WelcomeHome() {
 							{displayedText}
 						</h1>
 						<div
-							className={`mt-6 max-w-2xl text-gray-200 text-sm md:text-base leading-relaxed transform transition-all duration-2000 ease-out ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-95"}`}
-						>
+							className={`mt-6 max-w-2xl text-gray-200 text-sm md:text-base leading-relaxed transform transition-all duration-2000 ease-out ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-95"}`}>
 							<p className="text-2xl font-bold">
 								Bachelor in Computer Application (BCA) Graduate
 							</p>
@@ -188,15 +179,13 @@ export default function WelcomeHome() {
 			{/* Social Icons */}
 			<div
 				className={`fixed top-1/2 left-4 -translate-y-1/2 flex flex-col gap-4  scroll-mt-40  transition z-50 ${isClicked ? "scale-105 animate-pulseFast  p-2" : ""} `}
-				id="contacts"
-			>
+				id="contacts">
 				<a
 					href="https://github.com/adityaspaudel"
 					target="_blank"
 					rel="noopener noreferrer"
 					className={`flex items-center justify-center  rounded-full  shadow-md hover:bg-gray-100 hover:scale-110 w-12 h-12 transition-transform duration-300 focus:outline-none focus:ring-2 ${isClicked ? "scale-105 ring-2 ring-blue-400" : ""} focus:ring-blue-500 bg-white`}
-					aria-label="GitHub"
-				>
+					aria-label="GitHub">
 					<FaGithub className={`text-gray-800 text-xl `} />
 				</a>
 				<a
@@ -204,8 +193,7 @@ export default function WelcomeHome() {
 					target="_blank"
 					rel="noopener noreferrer"
 					className={`flex items-center justify-center rounded-full  shadow-md hover:bg-blue-50 hover:scale-110 w-12 h-12 transition-transform duration-300 ${isClicked ? "scale-105 ring-2 ring-blue-400" : ""} focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white`}
-					aria-label="LinkedIn"
-				>
+					aria-label="LinkedIn">
 					<FaLinkedin className="text-blue-700 text-xl" />
 				</a>
 				<a
@@ -213,8 +201,7 @@ export default function WelcomeHome() {
 					target="_blank"
 					rel="noopener noreferrer"
 					className={`flex items-center justify-center  rounded-full  shadow-md hover:bg-blue-50 hover:scale-110 w-12 h-12 transition  duration-300 ${isClicked ? "scale-105 ring-2 ring-blue-400" : ""} focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white`}
-					aria-label="X / Twitter"
-				>
+					aria-label="X / Twitter">
 					<FaTwitter className="text-blue-500 text-xl" />
 				</a>
 				<a
@@ -222,8 +209,7 @@ export default function WelcomeHome() {
 					target="_blank"
 					rel="noopener noreferrer"
 					className={`flex items-center justify-center w-12 h-12 rounded-full  shadow-md hover:bg-pink-50 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 ${isClicked ? "scale-105 ring-2 ring-blue-400" : ""} focus:ring-pink-500 bg-white`}
-					aria-label="Instagram"
-				>
+					aria-label="Instagram">
 					<FaInstagram className="text-pink-500 text-xl" />
 				</a>
 			</div>
@@ -234,8 +220,7 @@ export default function WelcomeHome() {
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
 				transition={{ duration: 0.7, ease: "easeOut" }}
-				id="skills"
-			>
+				id="skills">
 				<h2 className="text-3xl max-w-7xl font-bold text-center mb-12">
 					My Skills
 				</h2>
@@ -254,8 +239,7 @@ export default function WelcomeHome() {
 							ease: "easeOut",
 							delay: 0.1,
 						}}
-						whileHover={{ y: -10, scale: 1.04 }}
-					>
+						whileHover={{ y: -10, scale: 1.04 }}>
 						<h3 className="text-xl font-semibold mb-4">Frontend</h3>
 						<ul className="list-disc list-inside space-y-2 text-sm">
 							<li>React.js, Next.js (App Router)</li>
@@ -280,8 +264,7 @@ export default function WelcomeHome() {
 							ease: "easeOut",
 							delay: 0.2,
 						}}
-						whileHover={{ y: -10, scale: 1.04 }}
-					>
+						whileHover={{ y: -10, scale: 1.04 }}>
 						<h3 className="text-xl font-semibold mb-4">Backend</h3>
 						<ul className="list-disc list-inside space-y-2 text-sm">
 							<li>Node.js, Express.js</li>
@@ -305,8 +288,7 @@ export default function WelcomeHome() {
 							ease: "easeOut",
 							delay: 0.3,
 						}}
-						whileHover={{ y: -10, scale: 1.04 }}
-					>
+						whileHover={{ y: -10, scale: 1.04 }}>
 						<h3 className="text-xl font-semibold mb-4">Tools & Libraries</h3>
 						<ul className="list-disc list-inside space-y-2 text-sm">
 							<li>Git & GitHub, VSCode, Postman</li>
@@ -324,8 +306,7 @@ export default function WelcomeHome() {
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
 				transition={{ duration: 0.6, ease: "easeOut" }}
-				id="projects"
-			>
+				id="projects">
 				<h1 className="text-3xl  font-bold text-center mb-8">My Projects</h1>
 
 				<motion.div
@@ -339,8 +320,7 @@ export default function WelcomeHome() {
 							opacity: 1,
 							transition: { staggerChildren: 0.15 },
 						},
-					}}
-				>
+					}}>
 					{/* Socialmedia */}
 					<motion.div
 						variants={{
@@ -353,8 +333,7 @@ export default function WelcomeHome() {
 							},
 						}}
 						whileHover={{ y: -8, scale: 1.02 }}
-						transition={{ type: "spring", stiffness: 300 }}
-					>
+						transition={{ type: "spring", stiffness: 300 }}>
 						<ProjectCard
 							title="MeroSanjal"
 							githubLink="https://github.com/adityaspaudel/socialmedia"
@@ -383,8 +362,7 @@ export default function WelcomeHome() {
 							},
 						}}
 						whileHover={{ y: -8, scale: 1.02 }}
-						transition={{ type: "spring", stiffness: 300 }}
-					>
+						transition={{ type: "spring", stiffness: 300 }}>
 						<ProjectCard
 							title="eKharid"
 							githubLink="https://github.com/adityaspaudel/eKharid"
@@ -413,8 +391,7 @@ export default function WelcomeHome() {
 							},
 						}}
 						whileHover={{ y: -8, scale: 1.02 }}
-						transition={{ type: "spring", stiffness: 300 }}
-					>
+						transition={{ type: "spring", stiffness: 300 }}>
 						<ProjectCard
 							title="MiniProjects"
 							githubLink="https://github.com/adityaspaudel/miniProjects"
@@ -442,15 +419,13 @@ export default function WelcomeHome() {
 
 			{/* Contact Section */}
 			<section
-				className={`flex flex-col justify-center items-center gap-10 py-12 px-6 md:px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
-			>
+				className={`flex flex-col justify-center items-center gap-10 py-12 px-6 md:px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}>
 				{!messageMe && (
 					<motion.button
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}
 						className="bg-yellow-500 hover:bg-yellow-600 text-white font-medium rounded-md px-6 py-2 shadow-md transition-colors"
-						onClick={() => setMessageMe(true)}
-					>
+						onClick={() => setMessageMe(true)}>
 						Message Me
 					</motion.button>
 				)}
@@ -463,14 +438,12 @@ export default function WelcomeHome() {
 							: { opacity: 0, height: 0, scale: 0.95, y: 20 }
 					}
 					transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }} // Custom spring-like easing
-					className={`relative w-full max-w-5xl overflow-hidden rounded-xl shadow-2xl ${bgCard}`}
-				>
+					className={`relative w-full max-w-5xl overflow-hidden rounded-xl shadow-2xl ${bgCard}`}>
 					<motion.button
 						whileHover={{ rotate: 90, scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
 						className="absolute top-4 right-4 bg-gray-500 hover:bg-red-500 text-white h-8 w-8 font-bold rounded-full flex items-center justify-center z-50 transition-colors shadow-lg"
-						onClick={() => setMessageMe(false)}
-					>
+						onClick={() => setMessageMe(false)}>
 						✕
 					</motion.button>
 
@@ -481,8 +454,7 @@ export default function WelcomeHome() {
 							animate={messageMe ? { x: 0, opacity: 1 } : {}}
 							transition={{ delay: 0.2 }}
 							onSubmit={handleSubmit}
-							className={`rounded-2xl  p-8 shadow-lg w-full max-w-md   ${bgCard} border`}
-						>
+							className={`rounded-2xl  p-8 shadow-lg w-full max-w-md   ${bgCard} border`}>
 							<h2 className="mb-6  text-xl font-bold p-4 text-center bg-blue-500 text-white ">
 								Send a Message
 							</h2>
@@ -519,8 +491,7 @@ export default function WelcomeHome() {
 								whileHover={{ scale: 1.02 }}
 								whileTap={{ scale: 0.98 }}
 								type="submit"
-								className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 shadow-md transition-colors"
-							>
+								className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 shadow-md transition-colors">
 								Submit
 							</motion.button>
 						</motion.form>
@@ -530,8 +501,7 @@ export default function WelcomeHome() {
 							initial={{ x: 20, opacity: 0 }}
 							animate={messageMe ? { x: 0, opacity: 1 } : {}}
 							transition={{ delay: 0.3 }}
-							className={`rounded-2xl shadow-lg w-full max-w-md   flex flex-col p-8 h-[500px] ${bgCard} border`}
-						>
+							className={`rounded-2xl shadow-lg w-full max-w-md   flex flex-col p-8 h-[500px] ${bgCard} border`}>
 							<h2 className="text-xl font-bold p-4 text-center bg-blue-500 text-white ">
 								Previous Messages
 							</h2>
@@ -543,8 +513,7 @@ export default function WelcomeHome() {
 										variants={{
 											show: { transition: { staggerChildren: 0.1 } },
 										}}
-										className="space-y-3"
-									>
+										className="space-y-3">
 										{data.map((item) => (
 											<motion.li
 												variants={{
@@ -552,11 +521,9 @@ export default function WelcomeHome() {
 													show: { opacity: 1, y: 0 },
 												}}
 												key={item._id}
-												className={`border border-gray-200 p-3 rounded-lg transition-colors ${isDark ? "hover:bg-gray-700" : "hover:bg-gray-50"}`}
-											>
+												className={`border border-gray-200 p-3 rounded-lg transition-colors ${isDark ? "hover:bg-gray-700" : "hover:bg-gray-50"}`}>
 												<span
-													className={`font-semibold ${isDark ? "text-green-400" : "text-green-600"}`}
-												>
+													className={`font-semibold ${isDark ? "text-green-400" : "text-green-600"}`}>
 													{item.fullName}
 												</span>
 												<p className="mt-1 text-sm opacity-90">
@@ -595,8 +562,7 @@ function ProjectCard({
 	return (
 		<div
 			className={`rounded-xl overflow-hidden shadow-md hover:shadow-xl 
-      transition-all duration-300 ${cardBg}`}
-		>
+      transition-all duration-300 ${cardBg}`}>
 			{/* 🔥 HERO IMAGE */}
 			<div className="relative h-40 w-full overflow-hidden">
 				<img
@@ -622,8 +588,7 @@ function ProjectCard({
 						<Link
 							href={githubLink}
 							target="_blank"
-							className="font-semibold text-blue-600 hover:underline"
-						>
+							className="font-semibold text-blue-600 hover:underline">
 							View Repository
 						</Link>
 					</div>
@@ -633,8 +598,7 @@ function ProjectCard({
 						<Link
 							href={deployLink}
 							target="_blank"
-							className="font-semibold text-blue-600 hover:underline"
-						>
+							className="font-semibold text-blue-600 hover:underline">
 							Open Project
 						</Link>
 					</div>
