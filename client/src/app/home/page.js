@@ -109,43 +109,45 @@ export default function WelcomeHome() {
 						/>
 						<h1 className="font-bold text-xl">{`Aaditya Paudel`}</h1>
 					</Link>
+					{/* here  */}
 
-					<nav className=" md:flex items-center gap-6 text-sm font-medium">
+					<div className="flex gap-2  ">
 						<button
 							onClick={() => dispatch(toggleTheme())}
-							className={`px-4 py-2 rounded transition ${
-								isDark ? "bg-yellow-400 text-black" : "bg-gray-900 text-white"
+							className={`block px-4 py-2 rounded-2xl transition ${
+								isDark ? "bg-gray-600 text-black" : "bg-gray-900 text-white"
 							}`}>
-							{isDark ? "☀ Light Mode" : "🌙 Dark Mode"}
+							{isDark ? "☀" : "🌙 "}
 						</button>
-						<a href="#about" className="hover:text-blue-500">
-							About
-						</a>
-						<a href="#skills" className="hover:text-blue-500">
-							My Skills{" "}
-						</a>
-						<a href="#projects" className="hover:text-blue-500">
-							Projects
-						</a>
-
-						<a
-							href="#contacts"
-							onClick={(e) => {
-								e.preventDefault();
-								setIsClicked(true);
-								setTimeout(() => {
-									setIsClicked(false);
-								}, 3000);
-							}}
-							className="hover:text-blue-500">
-							Contact
-						</a>
-					</nav>
+						<nav className="hidden sm:flex items-center gap-6 text-sm font-medium">
+							<a href="#about" className="hover:text-blue-500">
+								About
+							</a>
+							<a href="#skills" className="hover:text-blue-500">
+								My Skills{" "}
+							</a>
+							<a href="#projects" className="hover:text-blue-500">
+								Projects
+							</a>
+							<a
+								href="#contacts"
+								onClick={(e) => {
+									e.preventDefault();
+									setIsClicked(true);
+									setTimeout(() => {
+										setIsClicked(false);
+									}, 3000);
+								}}
+								className="hover:text-blue-500">
+								Contact
+							</a>
+						</nav>
+					</div>
 				</div>
 			</header>
 			{/* Hero Section */}
 			<section
-				className="mt-6 flex justify-center px-12 scroll-mt-28 "
+				className="md:mt-6 flex justify-center p-2 md:px-12 scroll-mt-28 "
 				id="about">
 				<div className="relative w-full max-w-7xl h-[420px] rounded-2xl overflow-hidden shadow-lg">
 					<Image
@@ -215,7 +217,7 @@ export default function WelcomeHome() {
 			</div>
 			{/* Skills Section */}
 			<motion.section
-				className={`scroll-mt-28 flex flex-col justify-center items-center mt-6 px-12 max-w-7xl ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
+				className={`scroll-mt-28 flex flex-col  justify-center items-center mt-6 p-2 md:px-12 max-w-7xl ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}
 				initial={{ opacity: 0, y: 50 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
@@ -301,7 +303,7 @@ export default function WelcomeHome() {
 			</motion.section>
 			{/* Projects Section */}
 			<motion.section
-				className={`scroll-mt-28 mt-6 px-12  ${bgMain}`}
+				className={`scroll-mt-28 mt-6 p-2 md:px-12  ${bgMain}`}
 				initial={{ opacity: 0, y: 40 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
@@ -419,7 +421,7 @@ export default function WelcomeHome() {
 
 			{/* Contact Section */}
 			<section
-				className={`flex flex-col justify-center items-center gap-10 py-12 px-6 md:px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}>
+				className={`flex flex-col justify-center items-center gap-10 py-12 p-2 md:px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}>
 				{!messageMe && (
 					<motion.button
 						whileHover={{ scale: 1.05 }}
@@ -456,7 +458,7 @@ export default function WelcomeHome() {
 							onSubmit={handleSubmit}
 							className={`rounded-2xl  p-8 shadow-lg w-full max-w-md   ${bgCard} border`}>
 							<h2 className="mb-6  text-xl font-bold p-4 text-center bg-blue-500 text-white ">
-								Send a Message
+								Send public Message
 							</h2>
 							{["fullName", "email", "age"].map((field) => (
 								<motion.input
@@ -561,7 +563,7 @@ function ProjectCard({
 
 	return (
 		<div
-			className={`rounded-xl overflow-hidden shadow-md hover:shadow-xl 
+			className={`rounded-xl overflow-hidden shadow-md hover:shadow-xl p-2 md:px-12
       transition-all duration-300 ${cardBg}`}>
 			{/* 🔥 HERO IMAGE */}
 			<div className="relative h-40 w-full overflow-hidden">

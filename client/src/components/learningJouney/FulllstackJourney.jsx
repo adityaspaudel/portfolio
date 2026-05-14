@@ -51,18 +51,16 @@ const skills = [
 export default function FullstackJourneyTimeline({ isDark, bgMain, bgCard }) {
 	return (
 		<section
-			className={`min-h-screen bg-gradient-to-b ${bgMain} ${
+			className={` min-h-screen bg-gradient-to-b ${bgMain} ${
 				isDark ? "text-white" : "text-slate-900"
-			} py-20 px-6`}
-		>
+			} py-20 px-2 md:px-6`}>
 			<div className="max-w-3xl mx-auto">
 				{/* Title */}
 				<motion.h1
 					initial={{ opacity: 0, y: -20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6 }}
-					className="text-4xl md:text-5xl font-bold text-center mb-20 tracking-tight"
-				>
+					className="text-4xl md:text-5xl font-bold text-center mb-20 tracking-tight">
 					My MERN Stack Journey
 				</motion.h1>
 
@@ -79,8 +77,7 @@ export default function FullstackJourneyTimeline({ isDark, bgMain, bgCard }) {
 								ease: "easeOut",
 							}}
 							viewport={{ once: true, margin: "-80px" }}
-							className="mb-14 ml-6 group"
-						>
+							className="mb-14 ml-6 group">
 							{/* Timeline dot */}
 							<span className="absolute -left-[13px] flex items-center justify-center w-6 h-6 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shadow-sm group-hover:scale-110 transition">
 								<CheckCircle className="w-4 h-4 text-emerald-500" />
@@ -90,8 +87,7 @@ export default function FullstackJourneyTimeline({ isDark, bgMain, bgCard }) {
 							<div
 								className={`${bgCard} ${
 									isDark ? "text-slate-300" : "text-slate-600"
-								} rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-emerald-400/30`}
-							>
+								} rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-emerald-400/30`}>
 								<time className="text-xs font-semibold tracking-widest uppercase text-emerald-500">
 									{skill.year}
 								</time>
