@@ -421,12 +421,14 @@ export default function WelcomeHome() {
 
 			{/* Contact Section */}
 			<section
-				className={`flex flex-col justify-center items-center gap-10 py-12 p-2 md:px-12 ${bgMain} ${isDark ? "text-gray-100" : "text-gray-800"}`}>
+				className={`flex flex-col items-center gap-10 py-12 px-2 md:px-12 ${bgMain} ${
+					isDark ? "text-gray-100" : "text-gray-800"
+				}`}>
 				{!messageMe && (
 					<motion.button
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}
-						className="bg-yellow-500 hover:bg-yellow-600 text-white font-medium rounded-md px-6 py-2 shadow-md transition-colors"
+						className="bg-yellow-500 hover:bg-yellow-600 text-white font-medium rounded-lg px-6 py-3 shadow-md transition-all duration-300"
 						onClick={() => setMessageMe(true)}>
 						Message Me
 					</motion.button>
@@ -439,63 +441,73 @@ export default function WelcomeHome() {
 							? { opacity: 1, height: "auto", scale: 1, y: 0 }
 							: { opacity: 0, height: 0, scale: 0.95, y: 20 }
 					}
-					transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }} // Custom spring-like easing
-					className={`relative w-full max-w-5xl overflow-hidden rounded-xl shadow-2xl ${bgCard}`}>
+					transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+					className={`relative w-full max-w-6xl  overflow-hidden  rounded-2xl shadow-2xl  ${bgCard}`}>
+					{/* Close Button */}
 					<motion.button
 						whileHover={{ rotate: 90, scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
-						className="absolute top-4 right-4 bg-gray-500 hover:bg-red-500 text-white h-8 w-8 font-bold rounded-full flex items-center justify-center z-50 transition-colors shadow-lg"
+						className="absolute top-4 right-4 bg-gray-500  hover:bg-red-500 text-white h-8 w-8 rounded-full flex items-center  justify-center z-50 transition-colors shadow-lg"
 						onClick={() => setMessageMe(false)}>
 						✕
 					</motion.button>
 
-					<div className="flex flex-col md:flex md:flex-row gap-8 p-8 items-center  justify-between">
+					<div className="flex flex-col md:flex-row gap-6 md:gap-20 p-6 md:p-8 ">
 						{/* Contact Form */}
 						<motion.form
 							initial={{ x: -20, opacity: 0 }}
 							animate={messageMe ? { x: 0, opacity: 1 } : {}}
 							transition={{ delay: 0.2 }}
 							onSubmit={handleSubmit}
-							className={`rounded-2xl  p-8 shadow-lg w-full max-w-md   ${bgCard} border`}>
-							<h2 className="mb-6  text-xl font-bold p-4 text-center bg-blue-500 text-white ">
-								Send public Message
+							className={`flex-1 rounded-2xl p-6 shadow-lg ${
+								isDark
+									? "border-gray-700 hover:bg-gray-700"
+									: "border-gray-200 hover:bg-gray-50"
+							} ${bgCard}`}>
+							<h2 className="mb-6 text-xl font-bold p-4 text-center bg-blue-500 text-white rounded-lg">
+								Send Public Message
 							</h2>
-							{["fullName", "email", "age"].map((field) => (
-								<motion.input
-									key={field}
+
+							<div className="space-y-4">
+								{["fullName", "email", "age"].map((field) => (
+									<motion.input
+										key={field}
+										whileFocus={{ y: -2 }}
+										name={field}
+										type={
+											field === "email"
+												? "email"
+												: field === "age"
+													? "number"
+													: "text"
+										}
+										placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+										className={inputClasses}
+										value={formData[field]}
+										onChange={handleChange}
+										required={field !== "age"}
+									/>
+								))}
+
+								<motion.textarea
 									whileFocus={{ y: -2 }}
-									name={field}
-									type={
-										field === "email"
-											? "email"
-											: field === "age"
-												? "number"
-												: "text"
-									}
-									placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-									className={inputClasses}
-									value={formData[field]}
+									name="textMessage"
+									placeholder="Your Message"
+									className={`${inputClasses} resize-none`}
+									rows="4"
+									value={formData.textMessage}
 									onChange={handleChange}
-									required={field !== "age"}
+									required
 								/>
-							))}
-							<motion.textarea
-								whileFocus={{ y: -2 }}
-								name="textMessage"
-								placeholder="Your Message"
-								className={`${inputClasses} resize-none`}
-								rows="3"
-								value={formData.textMessage}
-								onChange={handleChange}
-								required
-							/>
-							<motion.button
-								whileHover={{ scale: 1.02 }}
-								whileTap={{ scale: 0.98 }}
-								type="submit"
-								className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 shadow-md transition-colors">
-								Submit
-							</motion.button>
+
+								<motion.button
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									type="submit"
+									className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 shadow-md transition-all duration-300">
+									Submit
+								</motion.button>
+							</div>
 						</motion.form>
 
 						{/* Previous Messages */}
@@ -503,32 +515,46 @@ export default function WelcomeHome() {
 							initial={{ x: 20, opacity: 0 }}
 							animate={messageMe ? { x: 0, opacity: 1 } : {}}
 							transition={{ delay: 0.3 }}
-							className={`rounded-2xl shadow-lg w-full max-w-md   flex flex-col p-8 h-[500px] ${bgCard} border`}>
-							<h2 className="text-xl font-bold p-4 text-center bg-blue-500 text-white ">
+							className={`flex-1 rounded-2xl shadow-lg ${
+								isDark
+									? "border-gray-700 hover:bg-gray-700"
+									: "border-gray-200 hover:bg-gray-50"
+							} p-6 flex flex-col ${bgCard}`}>
+							<h2 className="mb-6 text-xl  font-bold p-4 text-center bg-blue-500 text-white rounded-lg">
 								Previous Messages
 							</h2>
-							<div className="overflow-y-auto  flex-grow">
+
+							<div className="overflow-y-auto flex-grow pr-2 max-h-[500px]">
 								{data.length > 0 ? (
 									<motion.ul
 										initial="hidden"
 										animate="show"
 										variants={{
-											show: { transition: { staggerChildren: 0.1 } },
+											show: {
+												transition: { staggerChildren: 0.08 },
+											},
 										}}
 										className="space-y-3">
 										{data.map((item) => (
 											<motion.li
+												key={item._id}
 												variants={{
 													hidden: { opacity: 0, y: 10 },
 													show: { opacity: 1, y: 0 },
 												}}
-												key={item._id}
-												className={`border border-gray-200 p-3 rounded-lg transition-colors ${isDark ? "hover:bg-gray-700" : "hover:bg-gray-50"}`}>
+												className={`border p-4 rounded-xl transition-all duration-300 ${
+													isDark
+														? "border-gray-700 hover:bg-gray-700"
+														: "border-gray-200 hover:bg-gray-50"
+												}`}>
 												<span
-													className={`font-semibold ${isDark ? "text-green-400" : "text-green-600"}`}>
+													className={`font-semibold ${
+														isDark ? "text-green-400" : "text-green-600"
+													}`}>
 													{item.fullName}
 												</span>
-												<p className="mt-1 text-sm opacity-90">
+
+												<p className="mt-2 text-sm opacity-90 leading-relaxed">
 													{item.textMessage}
 												</p>
 											</motion.li>
