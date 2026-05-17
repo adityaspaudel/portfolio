@@ -68,7 +68,11 @@ export default function WelcomeHome() {
 			console.error("Error fetching data:", err);
 		}
 	}, []);
-	const inputClasses = `border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all ${bgCard} ${isDark ? "text-gray-100" : "text-gray-800"}`;
+	const inputClasses = `border border-gray-400 p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all ${bgCard} ${
+		isDark
+			? "border-gray-600 hover:bg-gray-700"
+			: "border-gray-200 hover:bg-gray-50"
+	}`;
 	useEffect(() => {
 		fetchMessages(); // call it immediately
 	}, [fetchMessages]);
@@ -452,7 +456,7 @@ export default function WelcomeHome() {
 						✕
 					</motion.button>
 
-					<div className="flex flex-col md:flex-row gap-6 md:gap-20 p-6 md:p-8 ">
+					<div className="flex flex-col md:flex-row gap-6 xl:gap-20 p-6 md:p-8 ">
 						{/* Contact Form */}
 						<motion.form
 							initial={{ x: -20, opacity: 0 }}
@@ -468,7 +472,7 @@ export default function WelcomeHome() {
 								Send Public Message
 							</h2>
 
-							<div className="space-y-4">
+							<div className={`space-y-4`}>
 								{["fullName", "email", "age"].map((field) => (
 									<motion.input
 										key={field}
@@ -482,7 +486,7 @@ export default function WelcomeHome() {
 													: "text"
 										}
 										placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-										className={inputClasses}
+										className={` ${inputClasses}`}
 										value={formData[field]}
 										onChange={handleChange}
 										required={field !== "age"}
@@ -517,8 +521,8 @@ export default function WelcomeHome() {
 							transition={{ delay: 0.3 }}
 							className={`flex-1 rounded-2xl shadow-lg ${
 								isDark
-									? "border-gray-700 hover:bg-gray-700"
-									: "border-gray-200 hover:bg-gray-50"
+									? "border-gray-600 hover:bg-gray-700"
+									: "border-gray-100 hover:bg-gray-50"
 							} p-6 flex flex-col ${bgCard}`}>
 							<h2 className="mb-6 text-xl  font-bold p-4 text-center bg-blue-500 text-white rounded-lg">
 								Previous Messages
@@ -544,7 +548,7 @@ export default function WelcomeHome() {
 												}}
 												className={`border p-4 rounded-xl transition-all duration-300 ${
 													isDark
-														? "border-gray-700 hover:bg-gray-700"
+														? "border-gray-600 hover:bg-gray-700"
 														: "border-gray-200 hover:bg-gray-50"
 												}`}>
 												<span
