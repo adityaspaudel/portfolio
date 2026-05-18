@@ -46,6 +46,24 @@ const skills = [
 			"Implemented JWT auth, bcrypt hashing, file uploads, real-time Socket.io features, and Nodemailer.",
 		year: "2025",
 	},
+	{
+		title: "TypeScript Fundamentals",
+		description:
+			"Transitioned from JavaScript to TypeScript, mastering static typing, type inference, interfaces, type aliases, enums, and configuring tsconfig.json.",
+		year: "2026",
+	},
+	{
+		title: "Advanced TypeScript & Type Manipulation",
+		description:
+			"Basic implementation of Advanced type safety using generics, utility types, mapped types, index signatures, template literal types, and advanced keywords like keyof and extends.",
+		year: "2026",
+	},
+	// {
+	// 	title: "Full-Stack TypeScript Integration",
+	// 	description:
+	// 		"Building type-safe applications by integrating TypeScript with Next.js, Express, and modern ORMs/ODMs for robust compile-time checking.",
+	// 	year: "2026",
+	// },
 ];
 
 export default function FullstackJourneyTimeline({ isDark, bgMain, bgCard }) {

@@ -184,7 +184,7 @@ export default function WelcomeHome() {
 			</section>
 			{/* Social Icons */}
 			<div
-				className={`fixed top-1/2 left-4 -translate-y-1/2 flex flex-col gap-4  scroll-mt-40  transition z-50 ${isClicked ? "scale-105 animate-pulseFast  p-2" : ""} `}
+				className={`fixed top-1/2 md:left-4  -translate-y-1/2 flex flex-col gap-4  scroll-mt-40  transition z-50 ${isClicked ? "scale-105 animate-pulseFast  p-2" : ""} `}
 				id="contacts">
 				<a
 					href="https://github.com/adityaspaudel"
