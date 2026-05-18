@@ -52,12 +52,19 @@ const skills = [
 			"Transitioned from JavaScript to TypeScript, mastering static typing, type inference, interfaces, type aliases, enums, and configuring tsconfig.json.",
 		year: "2026",
 	},
-	{
-		title: "Advanced TypeScript & Type Manipulation",
-		description:
-			"Basic implementation of Advanced type safety using generics, utility types, mapped types, index signatures, template literal types, and advanced keywords like keyof and extends.",
-		year: "2026",
-	},
+
+	// {
+	// 	title: "TypeScript Fundamentals on React",
+	// 	description:
+	// 		"Applied strict typing to the React ecosystem, implementing strongly-typed component props, state hooks (useState, useReducer), custom hooks, component children, and handling form and mouse events safely with TSX.",
+	// 	year: "2026",
+	// },
+	// {
+	// 	title: "Advanced TypeScript & Type Manipulation",
+	// 	description:
+	// 		"Basic implementation of Advanced type safety using generics, utility types, mapped types, index signatures, template literal types, and advanced keywords like keyof and extends.",
+	// 	year: "2026",
+	// },
 	// {
 	// 	title: "Full-Stack TypeScript Integration",
 	// 	description:
