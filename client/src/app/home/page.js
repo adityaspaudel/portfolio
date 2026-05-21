@@ -115,13 +115,21 @@ export default function WelcomeHome() {
 					</Link>
 					{/* here  */}
 
-					<div className="flex gap-2  ">
+					<div className="flex gap-8  ">
 						<button
 							onClick={() => dispatch(toggleTheme())}
-							className={`block px-4 py-2 rounded-2xl transition ${
-								isDark ? "bg-gray-600 text-black" : "bg-gray-900 text-white"
+							className={`block  transition px-4 py-2 rounded-full ${
+								isDark ? "bg-gray-600 text-black" : "bg-gray-900 text-white "
 							}`}>
-							{isDark ? "☀" : "🌙 "}
+							{isDark ? (
+								<span className="transition 2s text-white flex gap-2 justify-between items-center">
+									☾
+								</span>
+							) : (
+								<span className="transition 2s text white flex gap-2 justify-between items-center">
+									🌕
+								</span>
+							)}
 						</button>
 						<nav className="hidden sm:flex items-center gap-6 text-sm font-medium">
 							<a href="#about" className="hover:text-blue-500">
